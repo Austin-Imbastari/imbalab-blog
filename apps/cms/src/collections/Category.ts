@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import formatDate from "./customHooks";
 
 const Category: CollectionConfig = {
   slug: "categories",
@@ -9,6 +10,14 @@ const Category: CollectionConfig = {
       type: "text",
       required: true,
       unique: true,
+    },
+    {
+      name: "createdAt",
+      label: "Created At",
+      type: "date",
+      hooks: {
+        afterRead: [formatDate],
+      },
     },
     // Add other fields as needed for category metadata
   ],
