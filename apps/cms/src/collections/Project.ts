@@ -1,4 +1,7 @@
 import { CollectionConfig } from "payload/types";
+// import { lexicalEditor } from "@payloadcms/richtext-lexical";
+
+//custom hook
 import formatDate from "./customHooks";
 
 const Projects: CollectionConfig = {
@@ -25,6 +28,13 @@ const Projects: CollectionConfig = {
       required: true,
     },
     {
+      name: "category",
+      type: "relationship",
+      relationTo: "categories",
+      hasMany: false,
+      required: true,
+    },
+    {
       name: "description",
       type: "textarea",
       required: true,
@@ -38,11 +48,9 @@ const Projects: CollectionConfig = {
       },
     },
     {
-      name: "category",
-      type: "relationship",
-      relationTo: "categories",
-      hasMany: false,
-      required: true,
+      name: "content",
+      label: "Content",
+      type: "richText",
     },
     {
       name: "projectLink",
