@@ -1,105 +1,89 @@
-import { CollectionConfig } from "payload/types";
-// import { lexicalEditor } from "@payloadcms/richtext-lexical";
+import type { CollectionConfig } from "payload/types";
 
-//custom hook
-import formatDate from "./customHooks";
+import type { Field } from "payload/types";
+import { deepMerge, formatSlug } from "../utils";
 
 const Projects: CollectionConfig = {
-  slug: "project",
-  upload: {
-    staticURL: "/images",
-    staticDir: "images",
-    imageSizes: [
-      {
-        name: "thumbnail",
-        width: 400,
-        height: 300,
-        position: "centre",
-      },
-      // Define other image sizes as needed
-    ],
-    mimeTypes: ["image/*"],
+  slug: "projects",
+  admin: {
+    defaultColumns: ["title", "slug"],
+    useAsTitle: "title",
   },
-
+  versions: {
+    drafts: true,
+  },
   fields: [
-    {
-      name: "author",
-      type: "relationship",
-      relationTo: "media",
-      hasMany: false,
-      required: true,
-    },
     {
       name: "title",
       type: "text",
       required: true,
     },
     {
-      name: "category",
-      type: "relationship",
-      relationTo: "categories",
-      hasMany: false,
-      required: true,
+      name: "categories",
       admin: {
         position: "sidebar",
       },
+      hasMany: true,
+      relationTo: "categories",
+      type: "relationship",
+      required: true,
     },
+    {
+      name: "publishedDate",
+      admin: {
+        position: "sidebar",
+      },
+      type: "date",
+    },
+    deepMerge<Field, Partial<Field>>(
+      {
+        name: "slug",
+        admin: {
+          position: "sidebar",
+          readOnly: true,
+        },
+        hooks: {
+          beforeChange: [formatSlug("title")],
+        },
+        index: true,
+        label: "Slug",
+        type: "text",
+      },
+      {}
+    ),
     {
       name: "description",
       type: "textarea",
       required: true,
     },
     {
-      name: "createdAt",
-      type: "date",
+      name: "livedemo",
+      label: "Live demo link",
+      type: "text",
       required: true,
-      hooks: {
-        afterRead: [formatDate],
+      validate: (value: string) => {
+        const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+        if (!urlPattern.test(value)) {
+          return "Invalid URL format";
+        }
       },
-      admin: {
-        position: "sidebar",
+    },
+    {
+      name: "github",
+      label: "GitHub repository link",
+      type: "text",
+      required: true,
+      validate: (value: string) => {
+        const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
+        if (!urlPattern.test(value)) {
+          return "Invalid URL format";
+        }
       },
     },
     {
       name: "content",
-      label: "Content",
       type: "richText",
-    },
-    {
-      name: "projectLink",
-      label: "Project Link",
-      type: "array",
       required: true,
-      labels: {
-        singular: "Link",
-        plural: "Links",
-      },
-      fields: [
-        {
-          name: "livedemo",
-          label: "Live demo link",
-          type: "text",
-          required: true,
-          validate: (value: string) => {
-            const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
-            if (!urlPattern.test(value)) {
-              return "Invalid URL format";
-            }
-          },
-        },
-        {
-          name: "github",
-          label: "github repository link",
-          type: "text",
-          required: true,
-          validate: (value: string) => {
-            const urlPattern = /^(ftp|http|https):\/\/[^ "]+$/;
-            if (!urlPattern.test(value)) {
-              return "Invalid URL format";
-            }
-          },
-        },
-      ],
     },
   ],
 };
