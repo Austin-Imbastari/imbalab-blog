@@ -2,14 +2,13 @@ import { CollectionConfig } from "payload/types";
 import formatDate from "./customHooks";
 
 const Category: CollectionConfig = {
-  slug: "categories",
+  admin: {
+    useAsTitle: "title",
+  },
   fields: [
     {
-      name: "name",
-      label: "Category Name",
+      name: "title",
       type: "text",
-      required: true,
-      unique: true,
     },
     {
       name: "createdAt",
@@ -19,8 +18,8 @@ const Category: CollectionConfig = {
         afterRead: [formatDate],
       },
     },
-    // Add other fields as needed for category metadata
   ],
+  slug: "categories",
 };
 
 export default Category;

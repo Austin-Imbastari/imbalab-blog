@@ -40,6 +40,9 @@ const Projects: CollectionConfig = {
       relationTo: "categories",
       hasMany: false,
       required: true,
+      admin: {
+        position: "sidebar",
+      },
     },
     {
       name: "description",
@@ -52,6 +55,9 @@ const Projects: CollectionConfig = {
       required: true,
       hooks: {
         afterRead: [formatDate],
+      },
+      admin: {
+        position: "sidebar",
       },
     },
     {
