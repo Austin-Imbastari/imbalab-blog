@@ -12,11 +12,15 @@ import { CodeBlock } from "./blocks/CodeBlock/CodeBlocks";
 import { MediaBlock } from "./blocks/MediaBlock";
 
 //Collections
-import Users from "./collections/Users";
+import Users from "./collections/User/Users";
 import Projects from "./collections/Project";
 import Category from "./collections/Category";
 import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
+
+//Globals
+import { Navbar } from "./global/Navbar";
+import { Footer } from "./global/Footer";
 
 const editor = lexicalEditor({
   features: ({ defaultFeatures }) => [
@@ -49,6 +53,8 @@ export default buildConfig({
   },
   editor,
   collections: [Users, Media, Projects, Category, Pages],
+  globals: [Navbar, Footer],
+
   typescript: {
     outputFile: path.resolve(__dirname, "payload-types.ts"),
   },

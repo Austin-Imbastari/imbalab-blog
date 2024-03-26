@@ -1,7 +1,6 @@
 import type { Field } from "payload/types";
 import { CollectionConfig } from "payload/types";
 import { deepMerge, formatSlug } from "../utils";
-import { MediaBlock } from "../blocks/MediaBlock/index";
 import { Archive } from "../blocks/ArchiveBlock/index";
 
 const hero: Field = {
@@ -23,6 +22,12 @@ const hero: Field = {
 
 export const Pages: CollectionConfig = {
   slug: "pages",
+  // access: {
+  //   create: admins,
+  //   delete: () => false,
+  //   read: adminsOrPublished,
+  //   update: admins,
+  // },
   admin: {
     useAsTitle: "title",
   },
