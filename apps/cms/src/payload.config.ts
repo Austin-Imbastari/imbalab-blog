@@ -4,7 +4,6 @@ import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
 // import { webpackBundler } from "@payloadcms/bundler-webpack";
 import { viteBundler } from "@payloadcms/bundler-vite";
-
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import { BlocksFeature, LinkFeature, lexicalEditor, BlockNode } from "@payloadcms/richtext-lexical";
