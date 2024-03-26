@@ -1,4 +1,5 @@
 import { CollectionConfig } from "payload/types";
+import formatDate from "./customHooks";
 
 const Media: CollectionConfig = {
   slug: "media",

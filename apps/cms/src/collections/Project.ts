@@ -23,6 +23,13 @@ const Projects: CollectionConfig = {
 
   fields: [
     {
+      name: "author",
+      type: "relationship",
+      relationTo: "media",
+      hasMany: false,
+      required: true,
+    },
+    {
       name: "title",
       type: "text",
       required: true,

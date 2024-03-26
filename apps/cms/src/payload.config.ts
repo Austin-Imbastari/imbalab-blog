@@ -2,7 +2,9 @@ import path from "path";
 
 import { payloadCloud } from "@payloadcms/plugin-cloud";
 import { mongooseAdapter } from "@payloadcms/db-mongodb";
-import { webpackBundler } from "@payloadcms/bundler-webpack";
+// import { webpackBundler } from "@payloadcms/bundler-webpack";
+import { viteBundler } from "@payloadcms/bundler-vite";
+
 import { slateEditor } from "@payloadcms/richtext-slate";
 import { buildConfig } from "payload/config";
 import { BlocksFeature, LinkFeature, lexicalEditor, BlockNode } from "@payloadcms/richtext-lexical";
@@ -43,7 +45,7 @@ const editor = lexicalEditor({
 export default buildConfig({
   admin: {
     user: Users.slug,
-    bundler: webpackBundler(),
+    bundler: viteBundler(),
   },
   editor,
   collections: [Users, Media, Projects, Category],
