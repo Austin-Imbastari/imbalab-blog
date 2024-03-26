@@ -8,14 +8,14 @@ import { BlocksFeature, LinkFeature, lexicalEditor, BlockNode } from "@payloadcm
 import seo from "@payloadcms/plugin-seo";
 
 //Blocks
-import { CodeBlock } from "./blocks/CodeBlocks";
-import { MediaBlock } from "./blocks/Media";
+import { CodeBlock } from "./blocks/CodeBlock/CodeBlocks";
+import { MediaBlock } from "./blocks/MediaBlock";
 
 //Collections
 import Users from "./collections/Users";
-import Media from "./collections/Media";
 import Projects from "./collections/Project";
 import Category from "./collections/Category";
+import { Media } from "./collections/Media";
 import { Pages } from "./collections/Pages";
 
 const editor = lexicalEditor({

@@ -1,8 +1,8 @@
 import type { Field } from "payload/types";
 import { CollectionConfig } from "payload/types";
 import { deepMerge, formatSlug } from "../utils";
-import { MediaBlock } from "../blocks/Media/index";
-import { Archive } from "../blocks/Archive/index";
+import { MediaBlock } from "../blocks/MediaBlock/index";
+import { Archive } from "../blocks/ArchiveBlock/index";
 
 const hero: Field = {
   name: "hero",
