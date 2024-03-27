@@ -3,8 +3,8 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Pachang";
-  src: url("/fonts/Panchang-Variable.ttf");
+  font-family: 'Pachang';
+  src: url('/fonts/Panchang-Variable.ttf');
 }
 
 * {
@@ -12,3 +12,47 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+/* gradient buttons */
+.border-gradient {
+  position: relative;
+}
+.border-gradient::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50px;
+  padding: 2px;
+  background: linear-gradient(45deg, #7a87fb, #ffd49c);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+}
+
+/* .gradient {
+  background:
+    radial-gradient(
+        circle at 100% 100%,
+        #000000 0,
+        #000000 27px,
+        transparent 27px
+      )
+      0% 0%/30px 30px no-repeat,
+    radial-gradient(circle at 0 100%, #000000 0, #000000 27px, transparent 27px)
+      100% 0%/30px 30px no-repeat,
+    radial-gradient(circle at 100% 0, #000000 0, #000000 27px, transparent 27px)
+      0% 100%/30px 30px no-repeat,
+    radial-gradient(circle at 0 0, #000000 0, #000000 27px, transparent 27px)
+      100% 100%/30px 30px no-repeat,
+    linear-gradient(#000000, #000000) 50% 50% / calc(100% - 6px)
+      calc(100% - 60px) no-repeat,
+    linear-gradient(#000000, #000000) 50% 50% / calc(100% - 60px)
+      calc(100% - 6px) no-repeat,
+    linear-gradient(271deg, transparent 0%, #7a87fb 100%),
+    #ffd49c;
+  border-radius: 30px;
+  padding: 11px;
+  box-sizing: border-box;
+} */
