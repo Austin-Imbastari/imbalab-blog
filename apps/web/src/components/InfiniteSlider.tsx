@@ -36,7 +36,7 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((_, delta) => {
-    let moveBy = directionFactor.current * baseVelocity * (delta / 2000);
+    let moveBy = directionFactor.current * baseVelocity * (delta / 3000);
 
     /**
      * This is what changes the direction of the scroll once we
@@ -63,16 +63,16 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
   return (
     <div className="parallax bg-black">
       <motion.div className="scroller" style={{ x }}>
-        <span className="text-white ml-5 font-poppins">
+        <span className="text-white ml-5 font-poppins tracking-wider	">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins">
+        <span className="text-white ml-5 font-poppins tracking-wider	">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins">
+        <span className="text-white ml-5 font-poppins tracking-wider	">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins">
+        <span className="text-white ml-5 font-poppins tracking-wider	">
           I DESIGN & BUILD WEBSITES
         </span>
       </motion.div>
