@@ -31,28 +31,7 @@
   mask-composite: exclude;
 }
 
-/* .gradient {
-  background:
-    radial-gradient(
-        circle at 100% 100%,
-        #000000 0,
-        #000000 27px,
-        transparent 27px
-      )
-      0% 0%/30px 30px no-repeat,
-    radial-gradient(circle at 0 100%, #000000 0, #000000 27px, transparent 27px)
-      100% 0%/30px 30px no-repeat,
-    radial-gradient(circle at 100% 0, #000000 0, #000000 27px, transparent 27px)
-      0% 100%/30px 30px no-repeat,
-    radial-gradient(circle at 0 0, #000000 0, #000000 27px, transparent 27px)
-      100% 100%/30px 30px no-repeat,
-    linear-gradient(#000000, #000000) 50% 50% / calc(100% - 6px)
-      calc(100% - 60px) no-repeat,
-    linear-gradient(#000000, #000000) 50% 50% / calc(100% - 60px)
-      calc(100% - 6px) no-repeat,
-    linear-gradient(271deg, transparent 0%, #7a87fb 100%),
-    #ffd49c;
-  border-radius: 30px;
-  padding: 11px;
-  box-sizing: border-box;
-} */
+/* leva control panel */
+#leva__root > * {
+  width: 400px;
+}
