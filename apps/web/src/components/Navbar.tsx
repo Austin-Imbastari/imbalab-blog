@@ -1,4 +1,3 @@
-import React from 'react';
 import LogoIcon from '/images/logo.svg';
 import HomeIcon from '/images/homeIcon.svg';
 import Hamburger from '/images/hamburger.svg';
@@ -29,7 +28,6 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-
           <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full">
             <img className="size-4" src={Hamburger} alt="hamburger menu" />
           </div>

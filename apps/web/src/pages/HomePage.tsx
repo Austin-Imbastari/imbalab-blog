@@ -10,6 +10,7 @@ import {
   Environment,
   Text,
   MeshTransmissionMaterial,
+  OrbitControls,
 } from '@react-three/drei';
 
 type GLTFResult = GLTF & {
@@ -48,14 +49,12 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
 
   return (
     <group {...props} dispose={null} scale={width / 8}>
-      <Text font={fontUrl} fontSize={2} position={[0, 0, -2.5]}>
-        imbalab
-      </Text>
       <mesh
         ref={organic}
         geometry={nodes.oragnicShape.geometry}
         material={materials['Scene_-_Root']}
         rotation={[-2.698, 0.434, 3.094]}
+        scale={1.2}
       >
         <MeshTransmissionMaterial {...organicProps} />
       </mesh>
@@ -78,7 +77,11 @@ const Experience = () => {
         <color attach="background" args={['#000']} />
         <directionalLight intensity={2} position={[0, 3, 2]} />
         <Environment preset="studio" />
+        {/* <OrbitControls enableZoom={false} /> */}
         <OranicShape />
+        <Text font={fontUrl} fontSize={2} position={[0, 0, -2.5]}>
+          imbalab
+        </Text>
       </Canvas>
       <div className="leva-panel">
         <Leva collapsed />
