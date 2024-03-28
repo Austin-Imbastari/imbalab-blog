@@ -85,14 +85,15 @@ const Hero = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: 500px)`);
     setIsMobile(mediaQuery.matches);
-    const handleMediaQuery = (e: any) => {
-      setIsMobile(e.match);
+
+    const handleMediaQuery = (e: MediaQueryListEvent) => {
+      setIsMobile(e.matches);
     };
     mediaQuery.addEventListener('change', handleMediaQuery);
     return () => {
       mediaQuery.removeEventListener('change', handleMediaQuery);
     };
-  }, [mobile]);
+  }, []);
 
   return (
     <>
@@ -120,9 +121,7 @@ const Hero = () => {
             </Text>
           </Suspense>
         </Canvas>
-        <div className="leva-panel">
-          <Leva collapsed />
-        </div>
+        <Leva collapsed />
       </div>
     </>
   );
