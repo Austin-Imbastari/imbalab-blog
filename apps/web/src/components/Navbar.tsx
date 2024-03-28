@@ -1,3 +1,4 @@
+import ThemeSwitcher from './ThemeSwitcher';
 import LogoIcon from '/images/logo.svg';
 import HomeIcon from '/images/homeIcon.svg';
 import Hamburger from '/images/hamburger.svg';
@@ -18,7 +19,7 @@ const Navbar = () => {
             <img src={LogoIcon} alt="logo svg image" />
             <h1 className="font-poppins text-2xl ml-2 text-white">imbalab</h1>
           </div>
-          <div className="border-gradient bg-[#1C1C1C] rounded-full">
+          <div className="border-gradient bg-[#1C1C1C] rounded-full ">
             <ul className="flex items-center gap-[2vw]">
               <div className="p-2 m-2 pl-4 pr-4 bg-[#363636] rounded-full">
                 <img className="size-8" src={HomeIcon} alt="home icon" />
@@ -28,10 +29,13 @@ const Navbar = () => {
                   About
                 </a>
               </li>
-              <li className="pr-5">
+              <li>
                 <a className="font-poppins text-white" href="#">
                   Projects
                 </a>
+              </li>
+              <li className="flex items-center pr-4">
+                <ThemeSwitcher />
               </li>
             </ul>
           </div>
