@@ -85,7 +85,6 @@ const Hero = () => {
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: 500px)`);
     setIsMobile(mediaQuery.matches);
-
     const handleMediaQuery = (e: MediaQueryListEvent) => {
       setIsMobile(e.matches);
     };
