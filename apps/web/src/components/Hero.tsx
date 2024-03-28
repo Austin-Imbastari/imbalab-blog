@@ -1,8 +1,8 @@
 import fontUrl from '/fonts/Panchang-Variable.ttf';
 import * as THREE from 'three';
+import { Suspense, useRef, useEffect, useState } from 'react';
 import { GLTF } from 'three-stdlib';
 import { Mesh } from 'three';
-import { Suspense, useRef } from 'react';
 import { useControls, Leva } from 'leva';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import {
@@ -13,7 +13,6 @@ import {
   useProgress,
   Html,
 } from '@react-three/drei';
-import { scroll } from 'framer-motion';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -32,7 +31,6 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
   useFrame((state, delta) => {
     const angle = state.clock.getElapsedTime();
     organic.current.position.z += (Math.cos(angle) * delta) / 2;
-
     organic.current.rotation.set(
       Math.cos(angle / 2),
       Math.sin(-Math.PI * 2.5),
@@ -82,6 +80,22 @@ const Loader = () => {
 };
 
 const Hero = () => {
+  const [mobile, setIsMobile] = useState<boolean>(false);
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia(`(max-width: 500px)`);
+    setIsMobile(mediaQuery.matches);
+
+    const handleMediaQuery = (e: any) => {
+      setIsMobile(e.match);
+    };
+
+    mediaQuery.addEventListener('change', handleMediaQuery);
+    return () => {
+      mediaQuery.removeEventListener('change', handleMediaQuery);
+    };
+  }, [mobile]);
+
   return (
     <>
       <div className="relative h-screen">
@@ -99,7 +113,11 @@ const Hero = () => {
             <directionalLight intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} resolution={32} />
             <OranicShape />
-            <Text font={fontUrl} fontSize={2} position={[0, 0, -2.5]}>
+            <Text
+              font={fontUrl}
+              fontSize={mobile ? 0.6 : 2.2}
+              position={[0, 0, -2.5]}
+            >
               imbalab
             </Text>
           </Suspense>

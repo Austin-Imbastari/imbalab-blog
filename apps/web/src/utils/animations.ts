@@ -10,14 +10,3 @@ export const navbar = {
     delay: 0.5,
   },
 };
-
-export const imbaLabHtml = {
-  hidden: {
-    opacity: 0,
-  },
-  show: {
-    opacity: 1,
-    transition: { duration: 0.75, ease: 'easeOut' },
-    delay: 0.8,
-  },
-};
