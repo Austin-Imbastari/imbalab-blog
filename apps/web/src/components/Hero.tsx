@@ -32,6 +32,7 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
   useFrame((state, delta) => {
     const angle = state.clock.getElapsedTime();
     organic.current.position.z += (Math.cos(angle) * delta) / 2;
+
     organic.current.rotation.set(
       Math.cos(angle / 2),
       Math.sin(-Math.PI * 2.5),
@@ -39,13 +40,21 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
     );
   });
 
+  useFrame(({ mouse }) => {
+    const normalizedX = (mouse.x / 2 - 1) / 5;
+    const normalizedY = (mouse.y / 2 - 1) / 5;
+    organic.current.position.x = normalizedX;
+    organic.current.position.y = normalizedY;
+  });
+
   const organicProps = useControls({
     thickness: { value: 0.25, min: 0, max: 3, step: 0.05 },
     roughness: { value: 0, min: 0, max: 1, step: 0.1 },
     transmission: { value: 1, min: 0, max: 1, step: 0.1 },
     ior: { value: 1.2, min: 0, max: 3, step: 0.1 },
-    chromaticAberration: { value: 0.5, min: 0, max: 1 },
+    chromaticAberration: { value: 0.4, min: 0, max: 1 },
     backside: { value: true },
+    wireframe: { value: false },
   });
 
   return (
@@ -82,13 +91,14 @@ const Hero = () => {
             alpha: false,
             antialias: true,
           }}
-          camera={{ near: 0.01, far: 110, fov: 60 }}
           dpr={[1, 1.5]}
+          camera={{ near: 0.01, far: 110, fov: 60 }}
         >
           <Suspense fallback={<Loader />}>
             <color attach="background" args={['#000']} />
+
             <directionalLight intensity={2} position={[0, 3, 2]} />
-            <Environment preset="studio" />
+            <Environment files={'./hdr/gradient02.hdr'} resolution={32} />
             <OranicShape />
             <Text font={fontUrl} fontSize={2} position={[0, 0, -2.5]}>
               imbalab
