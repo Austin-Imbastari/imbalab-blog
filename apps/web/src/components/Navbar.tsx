@@ -1,11 +1,18 @@
 import LogoIcon from '/images/logo.svg';
 import HomeIcon from '/images/homeIcon.svg';
 import Hamburger from '/images/hamburger.svg';
+import { navbar } from '../utils/animations';
+import { motion } from 'framer-motion';
 
 const Navbar = () => {
   return (
     <>
-      <header className="bg-black">
+      <motion.header
+        variants={navbar}
+        initial="hidden"
+        animate="show"
+        className="bg-black"
+      >
         <nav className="container flex justify-between items-center h-28">
           <div className="flex items-center ">
             <img src={LogoIcon} alt="logo svg image" />
@@ -32,7 +39,7 @@ const Navbar = () => {
             <img className="size-4" src={Hamburger} alt="hamburger menu" />
           </div>
         </nav>
-      </header>
+      </motion.header>
     </>
   );
 };

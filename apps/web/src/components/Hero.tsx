@@ -1,11 +1,10 @@
-import React from 'react';
+import fontUrl from '/fonts/Panchang-Variable.ttf';
 import * as THREE from 'three';
 import { GLTF } from 'three-stdlib';
 import { Mesh } from 'three';
 import { Suspense, useRef } from 'react';
 import { useControls, Leva } from 'leva';
 import { Canvas, useFrame, useThree } from '@react-three/fiber';
-import fontUrl from '/fonts/Panchang-Variable.ttf';
 import {
   useGLTF,
   Environment,
@@ -14,6 +13,7 @@ import {
   useProgress,
   Html,
 } from '@react-three/drei';
+import { scroll } from 'framer-motion';
 
 type GLTFResult = GLTF & {
   nodes: {
@@ -96,7 +96,6 @@ const Hero = () => {
         >
           <Suspense fallback={<Loader />}>
             <color attach="background" args={['#000']} />
-
             <directionalLight intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} resolution={32} />
             <OranicShape />

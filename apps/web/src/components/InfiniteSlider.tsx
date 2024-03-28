@@ -2,6 +2,7 @@ import React from 'react';
 import { useRef } from 'react';
 import {
   motion,
+  useInView,
   useScroll,
   useSpring,
   useTransform,
@@ -16,6 +17,9 @@ type ParallaxProps = {
 };
 
 function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
+  const fadeRef = useRef<null>(null);
+  const isInView = useInView(fadeRef);
+
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -26,22 +30,11 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
-
-  /**
-   * This is a magic wrapping for the length of the text - you
-   * have to replace for wrapping that works for you or dynamically
-   * calculate
-   */
   const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
   const directionFactor = useRef<number>(1);
   useAnimationFrame((_, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 3000);
-
-    /**
-     * This is what changes the direction of the scroll once we
-     * switch scrolling directions.
-     */
     if (velocityFactor.get() < 0) {
       directionFactor.current = -1;
     } else if (velocityFactor.get() > 0) {
@@ -52,16 +45,15 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
 
     baseX.set(baseX.get() + moveBy);
   });
-
-  /**
-   * The number of times to repeat the child text should be dynamically calculated
-   * based on the size of the text and viewport. Likewise, the x motion value is
-   * currently wrapped between -20 and -45% - this 25% is derived from the fact
-   * we have four children (100% / 4). This would also want deriving from the
-   * dynamically generated number of children.
-   */
   return (
-    <div className="parallax bg-black">
+    <div
+      ref={fadeRef}
+      style={{
+        opacity: isInView ? 1 : 0,
+        transition: 'all 0.5s cubic-bezier(0.17, 0.55, 0.55, 1) 0.2s',
+      }}
+      className="parallax bg-black"
+    >
       <motion.div className="scroller" style={{ x }}>
         <span className="text-white ml-5 font-poppins tracking-wider	">
           I DESIGN & BUILD WEBSITES
