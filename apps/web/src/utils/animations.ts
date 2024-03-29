@@ -10,3 +10,25 @@ export const navbar = {
     delay: 0.5,
   },
 };
+
+export const newProjects = {
+  hidden: {
+    opacity: 0,
+    x: -300,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      staggerChildren: 0.26,
+      delay: 0.1,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};

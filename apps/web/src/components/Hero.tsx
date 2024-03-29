@@ -24,13 +24,12 @@ type GLTFResult = GLTF & {
 };
 function OranicShape(props: JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/organicShape.glb') as GLTFResult;
-  const { viewport, camera } = useThree();
-  const { width } = viewport.getCurrentViewport(camera, [0, 0, 0]);
+  const { viewport } = useThree();
   const organic = useRef<Mesh>(null!);
 
   useFrame((state, delta) => {
     const angle = state.clock.getElapsedTime();
-    organic.current.position.z += (Math.cos(angle) * delta) / 2;
+    organic.current.position.z += (Math.cos(angle) * delta) / 2.5;
     organic.current.rotation.set(
       Math.cos(angle / 2),
       Math.sin(-Math.PI * 2.5),
@@ -56,7 +55,7 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
   });
 
   return (
-    <group {...props} dispose={null} scale={width / 8}>
+    <group {...props} dispose={null} scale={viewport.width / 8}>
       <mesh
         ref={organic}
         geometry={nodes.oragnicShape.geometry}

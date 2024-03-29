@@ -30,7 +30,11 @@ const Navbar = () => {
                 </div>
               </NavLink>
               <li>
-                <a className="font-poppins text-white cursor-pointer" href="#">
+                <a
+                  className="font-poppins text-white cursor-pointer"
+                  target="_blank"
+                  href="https://austinimbastari.netlify.app/"
+                >
                   About
                 </a>
               </li>
