@@ -62,7 +62,7 @@ const Footer = () => {
                 <a
                   className="font-poppins  cursor-pointer"
                   target="_blank"
-                  href="https://austinimbastari.netlify.app/"
+                  href="https://github.com/Austin-Imbastari"
                 >
                   <FaGithubAlt size={28} />
                 </a>

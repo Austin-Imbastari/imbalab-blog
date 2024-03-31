@@ -6,6 +6,7 @@ import { Route, Routes } from 'react-router';
 import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AllProjects from './pages/AllProjects';
+import BlogPost from './pages/BlogPost';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/allprojects" element={<AllProjects />} />
+        <Route path="/blog/:id" element={<BlogPost />} />
       </Routes>
     </>
   );

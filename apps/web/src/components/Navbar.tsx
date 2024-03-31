@@ -37,7 +37,7 @@ const Navbar = () => {
                   target="_blank"
                   href="https://austinimbastari.netlify.app/"
                 >
-                  About
+                  About Me
                 </a>
               </li>
               <li>
