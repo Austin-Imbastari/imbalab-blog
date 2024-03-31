@@ -22,7 +22,15 @@ type GLTFResult = GLTF & {
     ['Scene_-_Root']: THREE.MeshStandardMaterial;
   };
 };
-function OranicShape(props: JSX.IntrinsicElements['group']) {
+
+type OranicShapeProps = {
+  mobile: boolean;
+};
+
+function OranicShape({
+  mobile,
+  ...props
+}: OranicShapeProps & JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/organicShape.glb') as GLTFResult;
   const { viewport } = useThree();
   const organic = useRef<Mesh>(null!);
@@ -55,13 +63,16 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
   });
 
   return (
-    <group {...props} dispose={null} scale={viewport.width / 8}>
+    <group
+      {...props}
+      dispose={null}
+      scale={mobile ? viewport.width / 4 : viewport.width / 8}
+    >
       <mesh
         ref={organic}
         geometry={nodes.oragnicShape.geometry}
         material={materials['Scene_-_Root']}
         rotation={[-2.698, 0.434, 3.094]}
-        scale={1}
       >
         <MeshTransmissionMaterial {...organicProps} />
       </mesh>
@@ -109,7 +120,7 @@ const Hero = () => {
             {/* <color attach="background" args={['#000']} /> */}
             <directionalLight intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} />
-            <OranicShape />
+            <OranicShape mobile={mobile} />
             <Text
               font={fontUrl}
               fontSize={mobile ? 0.6 : 2.2}
