@@ -3,6 +3,7 @@ import InfiniteSlider from '../components/InfiniteSlider';
 import NewProjects from '../components/NewProjects';
 import AboutSection from '../components/AboutSection';
 import Testimony from '../components/Testimony';
+import Footer from '../components/Footer';
 
 const HomePage = () => {
   return (
@@ -13,6 +14,7 @@ const HomePage = () => {
       <NewProjects />
       <AboutSection />
       <Testimony />
+      <Footer />
     </>
   );
 };
