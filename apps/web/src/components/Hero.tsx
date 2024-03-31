@@ -29,7 +29,7 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
 
   useFrame((state, delta) => {
     const angle = state.clock.getElapsedTime();
-    organic.current.position.z += (Math.cos(angle) * delta) / 2.5;
+    // organic.current.position.z += (Math.cos(angle) * delta) / 2.5;
     organic.current.rotation.set(
       Math.cos(angle / 2),
       Math.sin(-Math.PI * 2.5),
@@ -37,9 +37,9 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
     );
   });
 
-  useFrame(({ mouse }) => {
-    const normalizedX = (mouse.x / 2 - 1) / 5;
-    const normalizedY = (mouse.y / 2 - 1) / 5;
+  useFrame(({ pointer }) => {
+    const normalizedX = (pointer.x / 2 - 1) / 5;
+    const normalizedY = (pointer.y / 2 - 1) / 5;
     organic.current.position.x = normalizedX;
     organic.current.position.y = normalizedY;
   });
@@ -61,7 +61,7 @@ function OranicShape(props: JSX.IntrinsicElements['group']) {
         geometry={nodes.oragnicShape.geometry}
         material={materials['Scene_-_Root']}
         rotation={[-2.698, 0.434, 3.094]}
-        scale={1.2}
+        scale={1}
       >
         <MeshTransmissionMaterial {...organicProps} />
       </mesh>
@@ -106,9 +106,9 @@ const Hero = () => {
           camera={{ near: 0.01, far: 110, fov: 60 }}
         >
           <Suspense fallback={<Loader />}>
-            <color attach="background" args={['#000']} />
+            {/* <color attach="background" args={['#000']} /> */}
             <directionalLight intensity={2} position={[0, 3, 2]} />
-            <Environment files={'./hdr/gradient02.hdr'} resolution={32} />
+            <Environment files={'./hdr/gradient02.hdr'} />
             <OranicShape />
             <Text
               font={fontUrl}

@@ -14,18 +14,20 @@ const NewProjects = () => {
   return (
     <>
       <div className="container h-screen mt-[60px]">
-        <div className="flex">
+        <motion.div
+          initial="hidden"
+          animate={isInView ? 'show' : 'hidden'}
+          variants={newProjects}
+          exit="exit"
+          className="flex"
+        >
           <h1 className="text-white text-6xl font-poppins">New Projects</h1>
           <img className="ml-4" src={star} alt="star svg" />
-        </div>
+        </motion.div>
 
         <div className="flex justify-center mt-10">
           <motion.div
             ref={fadeRef}
-            // initial="hidden"
-            // animate={isInView ? 'show' : 'hidden'}
-            // variants={newProjects}
-            // exit="exit"
             className=""
             style={{
               scale: scrollYProgress,
