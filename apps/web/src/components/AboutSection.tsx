@@ -1,8 +1,12 @@
-import React from 'react';
-import { motion, useScroll } from 'framer-motion';
+import React, { useRef } from 'react';
+import { motion, useInView, useScroll } from 'framer-motion';
+import { heyAustin, Description, AustinImage } from '../utils/animations';
 
 const AboutSection = () => {
   const { scrollYProgress } = useScroll();
+  const ref = useRef<null>(null);
+  const isInView = useInView(ref);
+  console.log(isInView);
 
   return (
     <>
@@ -15,22 +19,42 @@ const AboutSection = () => {
           }}
         ></motion.div>
       </div>
-      <div className="container mt-[60px]">
+      <div className="container mt-[60px]" ref={ref}>
         <div>
-          <h1 className="text-7xl text-white font-bold tracking-wider font-pachang w-1/2">
+          <motion.h1
+            initial="hidden"
+            animate={isInView ? 'show' : 'hidden'}
+            variants={heyAustin}
+            exit="exit"
+            className="text-7xl text-white font-bold tracking-wider font-pachang w-1/2"
+          >
             Hey <br></br> I'm Austin
-          </h1>
+          </motion.h1>
         </div>
         <div className="flex flex-row-reverse">
-          <p className="text-2xl text-white font-medium tracking-wider font-pachang w-4/5 leading-relaxed mt-4">
+          <motion.p
+            initial="hidden"
+            animate={isInView ? 'show' : 'hidden'}
+            variants={Description}
+            exit="exit"
+            className="text-2xl text-white font-medium tracking-wider font-pachang w-4/5 leading-relaxed mt-4"
+          >
             - a frontend engineer and web designer crafting immersive online
             experiences that captivate and engage users. I breathe life into
             pixels, transforming abstract ideas into visually stunning and
             intuitively navigable websites.
-          </p>
+          </motion.p>
         </div>
         <div className="max-w-6xl mx-auto mt-10 rounded-lg ">
-          <img className="rounded-3xl" src="/images/imba.png" alt="imba" />
+          <motion.img
+            initial="hidden"
+            animate={isInView ? 'show' : 'hidden'}
+            variants={AustinImage}
+            exit="exit"
+            className="rounded-3xl"
+            src="/images/imba.png"
+            alt="imba"
+          />
         </div>
       </div>
     </>

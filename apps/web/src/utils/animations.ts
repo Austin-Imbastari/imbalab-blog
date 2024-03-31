@@ -20,9 +20,65 @@ export const newProjects = {
     opacity: 1,
     x: 0,
     transition: {
+      duration: 1.2,
+    },
+  },
+  exit: {
+    opacity: 0,
+  },
+};
+
+export const heyAustin = {
+  hidden: {
+    opacity: 0,
+    x: -300,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1,
+      delay: 0.5,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
       duration: 0.5,
-      staggerChildren: 0.26,
-      delay: 0.1,
+    },
+  },
+};
+export const Description = {
+  hidden: {
+    opacity: 0,
+    x: 300,
+  },
+  show: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 1.2,
+      delay: 0.8,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
+
+export const AustinImage = {
+  hidden: {
+    opacity: 0,
+  },
+
+  show: {
+    opacity: 1,
+    transition: {
+      duration: 1.2,
+      delay: 1.2,
     },
   },
   exit: {

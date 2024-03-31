@@ -24,11 +24,9 @@ const NewProjects = () => {
           <h1 className="text-white text-6xl font-poppins">New Projects</h1>
           <img className="ml-4" src={star} alt="star svg" />
         </motion.div>
-
         <div className="flex justify-center mt-10">
           <motion.div
             ref={fadeRef}
-            className=""
             style={{
               scale: scrollYProgress,
               opacity: scrollYProgress,
