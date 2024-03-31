@@ -51,7 +51,7 @@ export const heyAustin = {
 export const Description = {
   hidden: {
     opacity: 0,
-    x: 300,
+    x: 100,
   },
   show: {
     opacity: 1,
@@ -77,8 +77,8 @@ export const AustinImage = {
   show: {
     opacity: 1,
     transition: {
-      duration: 1.2,
-      delay: 1.2,
+      duration: 0.2,
+      delay: 1,
     },
   },
   exit: {
