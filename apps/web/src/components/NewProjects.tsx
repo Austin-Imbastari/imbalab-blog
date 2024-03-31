@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import star from '/images/star.svg';
 import ProjectCards from './ProjectCards';
-import { motion, useInView, useScroll } from 'framer-motion';
-import { newProjects } from '../utils/animations';
+import { motion, useInView, useScroll, useTransform } from 'framer-motion';
+import { newProjects, ContainerVariants } from '../utils/animations';
 
 const NewProjects = () => {
   const fadeRef = useRef<null>(null);
@@ -11,6 +11,10 @@ const NewProjects = () => {
     target: fadeRef,
     offset: ['0 1', '1 1'],
   });
+
+  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+
   return (
     <>
       <div className="container  mt-[60px]">
@@ -28,9 +32,12 @@ const NewProjects = () => {
           <motion.div
             ref={fadeRef}
             style={{
-              scale: scrollYProgress,
-              opacity: scrollYProgress,
+              scale: scaleProgress,
+              opacity: opacityProgress,
             }}
+            variants={ContainerVariants}
+            initial="hidden"
+            animate={isInView ? 'show' : 'hidden'}
           >
             <ProjectCards />
             <ProjectCards />

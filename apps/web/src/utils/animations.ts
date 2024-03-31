@@ -71,7 +71,7 @@ export const Description = {
 
 export const AustinImage = {
   hidden: {
-    opacity: 0,
+    opacity: 0.5,
   },
 
   show: {
@@ -85,6 +85,35 @@ export const AustinImage = {
     opacity: 0,
     transition: {
       duration: 0.5,
+    },
+  },
+};
+
+export const ContainerVariants = {
+  hidden: {
+    opacity: 0,
+    transition: {
+      delay: 0.5,
+      staggerChildren: 0.5,
+    },
+  },
+  show: {
+    opacity: 1,
+    transition: {
+      delayChildren: 0.2,
+      staggerChildren: 0.5,
+      when: 'afterChildren',
+    },
+  },
+};
+
+export const CardVariants = {
+  hidden: { opacity: 0, y: 50 },
+  show: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      when: 'beforeChildren',
     },
   },
 };

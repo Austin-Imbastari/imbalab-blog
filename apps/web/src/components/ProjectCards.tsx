@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
+import { motion } from 'framer-motion';
+import { CardVariants } from '../utils/animations';
 
 //this is where we will handle the data projects
 const ProjectCards = () => {
-  const [data, setIsData] = useState();
+  // const [data, setIsData] = useState();
   return (
-    <div className="card w-96 bg-base-100 shadow-xl mb-8">
+    <motion.div
+      variants={CardVariants}
+      className="card w-96 bg-base-100 shadow-xl mb-8"
+    >
       <figure>
         <img src="/images/soundbok.png" alt="soundboks" />
       </figure>
@@ -23,7 +28,7 @@ const ProjectCards = () => {
           <div className="badge badge-outline">Products</div>
         </div> */}
       </div>
-    </div>
+    </motion.div>
   );
 };
 
