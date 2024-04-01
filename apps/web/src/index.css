@@ -13,10 +13,6 @@
   box-sizing: border-box;
 }
 
-html {
-  scroll-behavior: smooth;
-}
-
 /* gradient buttons */
 .border-gradient {
   position: relative;

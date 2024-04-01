@@ -1,8 +1,37 @@
-import React, { useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import star from '/images/star.svg';
 import ProjectCards from './ProjectCards';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { newProjects, ContainerVariants } from '../utils/animations';
+
+type Hero = {
+  description: string;
+  github: string;
+  livedemo: string;
+  media: string;
+  shortDescription: string;
+};
+
+type CombinedType = {
+  blockName: string;
+  blockType: string;
+  categories: { id: string; title: string; createdAt: string }[]; // Update categories type
+  id: string;
+  limit: number;
+  populateBy: string;
+  relationTo: string;
+  selectedDocs: {
+    relationTo: string;
+    value: {
+      categories: string[];
+      content: {
+        root: any;
+      };
+      createdAt: string;
+      hero: Hero;
+    };
+  }[];
+};
 
 const NewProjects = () => {
   const fadeRef = useRef<null>(null);
@@ -14,6 +43,23 @@ const NewProjects = () => {
 
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+
+  const [data, setIsData] = useState<CombinedType[]>([]);
+  const handleFetchNewProjects = async () => {
+    try {
+      const url = `${import.meta.env.VITE_API_URL}/api/pages/660a13136beadca7a4a8614c?locale=undefined&draft=true&depth=1`;
+      const res = await fetch(url);
+      const data = await res.json();
+      const { layout } = data;
+      const newProjects = layout.slice(0, 2);
+      setIsData(newProjects);
+    } catch (e) {
+      console.log(e, 'There was an error fetching the new projects data!');
+    }
+  };
+  useEffect(() => {
+    handleFetchNewProjects();
+  }, []);
 
   return (
     <>
@@ -41,8 +87,19 @@ const NewProjects = () => {
             initial="hidden"
             animate={isInView ? 'show' : 'hidden'}
           >
-            <ProjectCards />
-            <ProjectCards />
+            {data?.map((project) => (
+              <div key={project.id}>
+                <ProjectCards
+                  name={project.blockName}
+                  category={project.categories[0].title}
+                  createdAt={project.categories[0].createdAt}
+                  description={project.selectedDocs[0].value.hero.description}
+                  github={project.selectedDocs[0].value.hero.github}
+                  liveDemo={project.selectedDocs[0].value.hero.livedemo}
+                  mediaId={project.selectedDocs[0].value.hero.media}
+                />
+              </div>
+            ))}
           </motion.div>
         </div>
       </div>
