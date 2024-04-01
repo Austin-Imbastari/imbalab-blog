@@ -13,10 +13,11 @@ const AboutSection = () => {
     offset: ['0 1', '1 1'],
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
+  const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
     <>
-      <div className="flex justify-center mt-[60px]">
+      <div className="flex justify-center mt-[60px] mb-[90px]">
         <motion.div
           style={{
             borderTop: '2px solid #3c3b3b',
@@ -33,6 +34,7 @@ const AboutSection = () => {
             variants={heyAustin}
             exit="exit"
             className="text-7xl text-white font-bold tracking-wider font-pachang w-1/2"
+            style={{ y: sm }}
           >
             Hey <br></br> I'm Austin ✌🏽
           </motion.h1>
@@ -44,6 +46,7 @@ const AboutSection = () => {
             variants={Description}
             exit="exit"
             className="text-2xl text-white font-medium tracking-wider font-pachang w-4/5 leading-relaxed mt-4"
+            style={{ y: sm }}
           >
             - a frontend engineer and web designer crafting immersive online
             experiences that captivate and engage users. I breathe life into
@@ -59,6 +62,7 @@ const AboutSection = () => {
             variants={AustinImage}
             style={{
               scale: scaleProgress,
+              y: sm,
             }}
             exit="exit"
             className="rounded-3xl"

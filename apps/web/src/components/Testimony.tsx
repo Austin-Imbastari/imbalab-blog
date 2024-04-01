@@ -9,14 +9,18 @@ const Testimony = () => {
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
   const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
     <>
       <div className="container mt-[150px]">
         <div>
-          <h1 className="text-8xl text-center text-white font-bold font-pachang ">
+          <motion.h1
+            style={{ y: sm }}
+            className="text-8xl text-center text-white font-bold font-pachang "
+          >
             Here's what you can expect from me...
-          </h1>
+          </motion.h1>
         </div>
 
         <div className="mt-[150px] flex flex-wrap flex-col md:flex-row gap-5 mt-gr lg:mt-lg mb-md lg:mb-xl">
@@ -24,6 +28,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px] rounded-3xl	 md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(33.33%-10px)] text-black text-6xl font-semibold"
           >
@@ -33,7 +38,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
-              opacity: opacityProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px] rounded-lg md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(66.66%-10px)] text-black text-6xl font-semibold"
           >
@@ -45,6 +50,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px] rounded-lg md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(50%-10px)] text-black text-6xl font-semibold"
           >
@@ -55,6 +61,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px] rounded-lg md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(50%-10px)] text-black text-6xl font-semibold"
           >
@@ -65,6 +72,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px]rounded-lg md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(58.333%-10px)] text-black text-6xl font-semibold"
           >
@@ -75,6 +83,7 @@ const Testimony = () => {
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',
               scale: scaleProgress,
+              y: sm,
             }}
             className="min-h-[350px] lg:min-h-[500px] rounded-lg md:rounded-3xl p-[30px] lg:p-[50px] w-full md:w-[calc(41.667%-10px)] text-black text-6xl font-semibold"
           >

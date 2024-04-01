@@ -18,7 +18,6 @@ type ParallaxProps = {
 function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
   const fadeRef = useRef<null>(null);
   const isInView = useInView(fadeRef);
-
   const baseX = useMotionValue(0);
   const { scrollY } = useScroll();
   const scrollVelocity = useVelocity(scrollY);
@@ -29,8 +28,8 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
   const velocityFactor = useTransform(smoothVelocity, [0, 1000], [0, 5], {
     clamp: false,
   });
-  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
 
+  const x = useTransform(baseX, (v) => `${wrap(-20, -45, v)}%`);
   const directionFactor = useRef<number>(1);
   useAnimationFrame((_, delta) => {
     let moveBy = directionFactor.current * baseVelocity * (delta / 3000);
@@ -39,11 +38,10 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
     } else if (velocityFactor.get() > 0) {
       directionFactor.current = 1;
     }
-
     moveBy += directionFactor.current * moveBy * velocityFactor.get();
-
     baseX.set(baseX.get() + moveBy);
   });
+
   return (
     <div
       ref={fadeRef}

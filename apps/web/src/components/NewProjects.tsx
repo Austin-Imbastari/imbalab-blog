@@ -25,7 +25,9 @@ const NewProjects = () => {
           exit="exit"
           className="flex"
         >
-          <h1 className="text-white text-6xl font-poppins">New Projects</h1>
+          <motion.h1 className="text-white text-6xl font-poppins">
+            New Projects
+          </motion.h1>
           <img className="ml-4" src={star} alt="star svg" />
         </motion.div>
         <div className="flex justify-center mt-10">
