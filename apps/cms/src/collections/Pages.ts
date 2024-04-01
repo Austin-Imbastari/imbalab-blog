@@ -2,6 +2,8 @@ import type { Field } from "payload/types";
 import { CollectionConfig } from "payload/types";
 import { deepMerge, formatSlug } from "../utils";
 import { Archive } from "../blocks/ArchiveBlock/index";
+import { admins } from "../access/admins";
+import { adminsOrPublished } from "../access/adminsOrPublished";
 
 const hero: Field = {
   name: "hero",
@@ -15,19 +17,18 @@ const hero: Field = {
       name: "media",
       relationTo: "media",
       type: "upload",
-      //   required: true,
     },
   ],
 };
 
 export const Pages: CollectionConfig = {
   slug: "pages",
-  // access: {
-  //   create: admins,
-  //   delete: () => false,
-  //   read: adminsOrPublished,
-  //   update: admins,
-  // },
+  access: {
+    create: admins,
+    delete: () => false,
+    read: adminsOrPublished,
+    update: admins,
+  },
   admin: {
     useAsTitle: "title",
   },
