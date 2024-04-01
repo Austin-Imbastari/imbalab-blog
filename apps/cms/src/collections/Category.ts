@@ -1,9 +1,12 @@
 import { CollectionConfig } from "payload/types";
 import formatDate from "./customHooks";
-
 const Category: CollectionConfig = {
   admin: {
     useAsTitle: "title",
+  },
+  access: {
+    delete: () => false,
+    read: () => true,
   },
   fields: [
     {
