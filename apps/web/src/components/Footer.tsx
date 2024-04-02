@@ -21,8 +21,8 @@ const Footer = () => {
               </div>
               <div className="mt-9 w-3/5">
                 <p className="text-white text-xl">
-                  Write anything here something about yourself to showcase what
-                  actually you doing or targeting etc.
+                  Feel free to send me a message about anything related to my
+                  blog!
                 </p>
               </div>
               <div>

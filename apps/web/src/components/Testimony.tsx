@@ -8,6 +8,7 @@ const Testimony = () => {
     // offset: ['0.2 1', '1 1'],
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  const scaleProgressTitle = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
@@ -15,10 +16,10 @@ const Testimony = () => {
       <div className="container mt-[150px]">
         <div>
           <motion.h1
-            style={{ y: sm }}
+            style={{ y: sm, scale: scaleProgressTitle }}
             className="text-8xl text-center text-white font-bold font-pachang "
           >
-            Here's what you can expect from me...
+            Here's what you can expect from my blog...
           </motion.h1>
         </div>
 

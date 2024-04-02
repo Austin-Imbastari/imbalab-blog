@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import fontUrl from '/fonts/Panchang-Variable.ttf';
 import * as THREE from 'three';
 import { Suspense, useRef, useEffect, useState } from 'react';
@@ -117,7 +118,7 @@ const Hero = () => {
           camera={{ near: 0.01, far: 110, fov: 60 }}
         >
           <Suspense fallback={<Loader />}>
-            {/* <color attach="background" args={['#000']} /> */}
+            <color attach="background" args={['#000']} />
             <directionalLight intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} />
             <OranicShape mobile={mobile} />

@@ -67,7 +67,10 @@ const AllProjects = () => {
       </div>
       <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2  ">
         {data?.map((project) => (
-          <div key={project.id} className="mt-[50px] mb-[50px]">
+          <div
+            key={project.id}
+            className="mt-[50px] mb-[50px] flex justify-center"
+          >
             <ProjectCards
               blogId={project.selectedDocs[0].value.id}
               name={project.blockName}
