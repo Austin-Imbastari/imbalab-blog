@@ -8,7 +8,6 @@ const Testimony = () => {
     // offset: ['0.2 1', '1 1'],
   });
   const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
-  const opacityProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
   const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (

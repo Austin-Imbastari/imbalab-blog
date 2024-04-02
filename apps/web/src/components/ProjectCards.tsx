@@ -41,21 +41,27 @@ const ProjectCards = ({
   return (
     <motion.div
       variants={CardVariants}
-      className="card w-96 bg-base-100 shadow-xl mb-8"
+      className="card w-96 bg-base-100 shadow-xl mb-8 flex flex-col h-full"
     >
       <figure>
         {imgId && (
-          <img src={`${import.meta.env.VITE_API_URL}${imgId}`} alt={name} />
+          <img
+            src={`${import.meta.env.VITE_API_URL}${imgId}`}
+            alt={name}
+            className="h-60 object-fit"
+          />
         )}
       </figure>
-      <div className="card-body">
-        <p className="card-normal text-[#818bf6]"> {createdAt}</p>
-        <h2 className="card-title">
-          {name}
-          <div className="badge  border-gradient p-2">{category}</div>
-        </h2>
-        <p>{description}</p>
-        <div className="card-actions justify-end">
+      <div className="card-body flex flex-col justify-between">
+        <div>
+          <p className="card-normal text-[#818bf6]"> {createdAt}</p>
+          <h2 className="card-title">
+            {name}
+            <div className="badge  border-gradient p-2">{category}</div>
+          </h2>
+          <p>{description}</p>
+        </div>
+        <div className="card-actions flex justify-end ">
           <div className="badge badge-outline">
             <a href={github} target="_blank">
               Source Code

@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import ProjectCards from '../components/ProjectCards';
+import star from '/images/star.svg';
 
 type Hero = {
   description: string;
@@ -48,22 +49,43 @@ const AllProjects = () => {
   }, []);
 
   return (
-    <>
-      <h1>All projects</h1>
-      {data?.map((project) => (
-        <div key={project.id}>
-          <ProjectCards
-            name={project.blockName}
-            category={project.categories[0].title}
-            createdAt={project.categories[0].createdAt}
-            description={project.selectedDocs[0].value.hero.description}
-            github={project.selectedDocs[0].value.hero.github}
-            liveDemo={project.selectedDocs[0].value.hero.livedemo}
-            mediaId={project.selectedDocs[0].value.hero.media}
-          />
+    <div className="container ">
+      <div className="flex justify-center mt-[200px] gap-6">
+        <div className="badge badge-outline border-gradient p-4">
+          <a href={''}>3D</a>
         </div>
-      ))}
-    </>
+        <div className="badge badge-outline border-gradient p-4">
+          <a href={''}>Fullstack</a>
+        </div>
+      </div>
+      <div className="flex mt-[50px]">
+        <h1 className="text-white text-4xl lg:text-6xl font-poppins">
+          New Projects
+        </h1>{' '}
+        <img className="ml-4" src={star} alt="star svg" />
+      </div>
+      <div
+        // style={{
+        //   outline: '1px solid lime',
+        // }}
+        className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2  "
+      >
+        {data?.map((project) => (
+          <div key={project.id} className="mt-[50px] mb-[50px]">
+            {/* {console.log(project)} */}
+            <ProjectCards
+              name={project.blockName}
+              category={project.categories[0].title}
+              createdAt={project.categories[0].createdAt}
+              description={project.selectedDocs[0].value.hero.description}
+              github={project.selectedDocs[0].value.hero.github}
+              liveDemo={project.selectedDocs[0].value.hero.livedemo}
+              mediaId={project.selectedDocs[0].value.hero.media}
+            />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

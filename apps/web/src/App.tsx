@@ -1,5 +1,5 @@
 import './App.css';
-import { ReactLenis, useLenis } from '@studio-freight/react-lenis';
+import { ReactLenis } from '@studio-freight/react-lenis';
 
 //react router dom
 import { Route, Routes } from 'react-router';
