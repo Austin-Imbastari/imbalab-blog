@@ -35,7 +35,6 @@ const BlogPost = () => {
 
   const fetchProjectId = async (projectId: string | undefined) => {
     try {
-      console.log(projectId);
       const url = `${import.meta.env.VITE_API_URL}/api/projects/${projectId}`;
       const res = await fetch(url);
       const data = await res.json();
@@ -53,7 +52,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <div className="container mt-[200px]">
+      <div className="container mt-[100px]">
         {data.map((project) => (
           <div key={project.id}>
             <div className="flex items-center">
