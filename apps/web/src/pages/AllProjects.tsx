@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ProjectCards from '../components/ProjectCards';
 import star from '/images/star.svg';
 
@@ -53,10 +52,10 @@ const AllProjects = () => {
   return (
     <div className="container">
       <div className="flex justify-center mt-[200px] gap-6">
-        <div className="badge badge-outline border-gradient p-4">
+        <div className="badge badge-outline border-gradient p-4 font-poppins">
           <a href={''}>3D</a>
         </div>
-        <div className="badge badge-outline border-gradient p-4">
+        <div className="badge badge-outline border-gradient p-4 font-poppins">
           <a href={''}>Fullstack</a>
         </div>
       </div>
@@ -66,12 +65,7 @@ const AllProjects = () => {
         </h1>{' '}
         <img className="ml-4" src={star} alt="star svg" />
       </div>
-      <div
-        // style={{
-        //   outline: '1px solid lime',
-        // }}
-        className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2  "
-      >
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2  ">
         {data?.map((project) => (
           <div key={project.id} className="mt-[50px] mb-[50px]">
             <ProjectCards

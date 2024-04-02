@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { newProjects, ContainerVariants } from '../utils/animations';
-import { Link } from 'react-router-dom';
 import star from '/images/star.svg';
 import ProjectCards from './ProjectCards';
 
