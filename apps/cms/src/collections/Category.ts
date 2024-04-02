@@ -1,12 +1,15 @@
 import { CollectionConfig } from "payload/types";
 import formatDate from "./customHooks";
+import { admins } from "../access/admins";
 const Category: CollectionConfig = {
   admin: {
     useAsTitle: "title",
   },
   access: {
-    delete: () => false,
+    create: admins,
+    delete: admins,
     read: () => true,
+    update: admins,
   },
   fields: [
     {
