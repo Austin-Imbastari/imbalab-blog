@@ -65,7 +65,7 @@ const AllProjects = () => {
         </h1>{' '}
         <img className="ml-4" src={star} alt="star svg" />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2  ">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2">
         {data?.map((project) => (
           <div
             key={project.id}

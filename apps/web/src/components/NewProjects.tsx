@@ -24,9 +24,9 @@ type CombinedType = {
     relationTo: string;
     value: {
       categories: string[];
-      content: {
-        root: any;
-      };
+      // content: {
+      //   root: any;
+      // };
       createdAt: string;
       hero: Hero;
       id: string;
@@ -52,7 +52,7 @@ const NewProjects = () => {
       const res = await fetch(url);
       const data = await res.json();
       const { layout } = data;
-      const newProjects = layout.slice(0, 2);
+      const newProjects = layout.slice(0, 3);
       setIsData(newProjects);
     } catch (e) {
       console.log(e, 'There was an error fetching the new projects data!');
@@ -64,7 +64,7 @@ const NewProjects = () => {
 
   return (
     <>
-      <div className="container mt-[60px]">
+      <div className="container mt-[60px] mb-[100px]">
         <motion.div
           initial="hidden"
           animate={isInView ? 'show' : 'hidden'}
@@ -77,7 +77,7 @@ const NewProjects = () => {
           </motion.h1>
           <img className="ml-4 " src={star} alt="star svg" />
         </motion.div>
-        <div className="flex justify-center mt-10">
+        <div className="mt-20">
           <motion.div
             ref={fadeRef}
             style={{
@@ -87,6 +87,7 @@ const NewProjects = () => {
             variants={ContainerVariants}
             initial="hidden"
             animate={isInView ? 'show' : 'hidden'}
+            className="grid justify-items-center lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1"
           >
             {data?.map((project) => (
               <div key={project.id}>
