@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import ProjectCards from '../components/ProjectCards';
 import star from '/images/star.svg';
 
@@ -27,6 +28,7 @@ type CombinedType = {
       };
       createdAt: string;
       hero: Hero;
+      id: string;
     };
   }[];
 };
@@ -49,7 +51,7 @@ const AllProjects = () => {
   }, []);
 
   return (
-    <div className="container ">
+    <div className="container">
       <div className="flex justify-center mt-[200px] gap-6">
         <div className="badge badge-outline border-gradient p-4">
           <a href={''}>3D</a>
@@ -60,7 +62,7 @@ const AllProjects = () => {
       </div>
       <div className="flex mt-[50px]">
         <h1 className="text-white text-4xl lg:text-6xl font-poppins">
-          New Projects
+          All Projects
         </h1>{' '}
         <img className="ml-4" src={star} alt="star svg" />
       </div>
@@ -72,8 +74,8 @@ const AllProjects = () => {
       >
         {data?.map((project) => (
           <div key={project.id} className="mt-[50px] mb-[50px]">
-            {/* {console.log(project)} */}
             <ProjectCards
+              blogId={project.selectedDocs[0].value.id}
               name={project.blockName}
               category={project.categories[0].title}
               createdAt={project.categories[0].createdAt}

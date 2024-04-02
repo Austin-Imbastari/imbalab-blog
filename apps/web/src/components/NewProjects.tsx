@@ -1,8 +1,9 @@
 import React, { useEffect, useRef, useState } from 'react';
-import star from '/images/star.svg';
-import ProjectCards from './ProjectCards';
 import { motion, useInView, useScroll, useTransform } from 'framer-motion';
 import { newProjects, ContainerVariants } from '../utils/animations';
+import { Link } from 'react-router-dom';
+import star from '/images/star.svg';
+import ProjectCards from './ProjectCards';
 
 type Hero = {
   description: string;
@@ -29,6 +30,7 @@ type CombinedType = {
       };
       createdAt: string;
       hero: Hero;
+      id: string;
     };
   }[];
 };
@@ -90,6 +92,7 @@ const NewProjects = () => {
             {data?.map((project) => (
               <div key={project.id}>
                 <ProjectCards
+                  blogId={project.selectedDocs[0].value.id}
                   name={project.blockName}
                   category={project.categories[0].title}
                   createdAt={project.categories[0].createdAt}

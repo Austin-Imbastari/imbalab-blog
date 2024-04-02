@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import { CardVariants } from '../utils/animations';
+import { Link } from 'react-router-dom';
 
 //this is where we will handle the data projects
 type ProjectProp = {
@@ -11,6 +12,7 @@ type ProjectProp = {
   liveDemo: string;
   category: string;
   mediaId: string;
+  blogId: string;
 };
 
 const ProjectCards = ({
@@ -21,6 +23,7 @@ const ProjectCards = ({
   liveDemo,
   category,
   mediaId,
+  blogId,
 }: ProjectProp) => {
   const [imgId, setImgId] = useState<string>('');
   const fetchImageData = async (mediaId: string) => {
@@ -43,15 +46,17 @@ const ProjectCards = ({
       variants={CardVariants}
       className="card w-96 bg-base-100 shadow-xl mb-8 flex flex-col h-full"
     >
-      <figure>
-        {imgId && (
-          <img
-            src={`${import.meta.env.VITE_API_URL}${imgId}`}
-            alt={name}
-            className="h-60 object-fit"
-          />
-        )}
-      </figure>
+      <Link to={'/blog/' + blogId}>
+        <figure>
+          {imgId && (
+            <img
+              src={`${import.meta.env.VITE_API_URL}${imgId}`}
+              alt={name}
+              className="h-60 object-fit"
+            />
+          )}
+        </figure>
+      </Link>
       <div className="card-body flex flex-col justify-between">
         <div>
           <p className="card-normal text-[#818bf6]"> {createdAt}</p>
