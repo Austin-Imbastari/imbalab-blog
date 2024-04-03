@@ -44,7 +44,7 @@ const ProjectCards = ({
   return (
     <motion.div
       variants={CardVariants}
-      className="card w-96 bg-base-100 border border-[#818bf672]  shadow-xl mb-6 flex flex-col overflow-hidden h-full "
+      className="card w-96 bg-base-100 border border-[#818bf64d]  shadow-xl mb-6 flex flex-col overflow-hidden h-full "
     >
       <Link to={'/blog/' + blogId}>
         <figure>

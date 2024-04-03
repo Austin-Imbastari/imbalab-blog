@@ -2,7 +2,7 @@
 import type { SerializedListItemNode, SerializedListNode } from '@lexical/list';
 import type {
   SerializedHeadingNode,
-  // SerializedQuoteNode,
+  SerializedQuoteNode,
 } from '@lexical/rich-text';
 import type {
   LinkFields,
@@ -29,9 +29,16 @@ import {
   IS_UNDERLINE,
 } from './nodeFormat';
 
+import { getHighlighter } from 'shiki';
+
 interface Props {
   nodes: SerializedLexicalNode[];
 }
+
+const highlighter = await getHighlighter({
+  themes: ['dracula'],
+  langs: ['javascript', 'typescript'],
+});
 
 export function serializeLexical({ nodes }: Props): JSX.Element {
   return (
@@ -39,12 +46,16 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
       {nodes?.map((_node, index): JSX.Element | null => {
         if (_node.type === 'text') {
           const node = _node as SerializedTextNode;
-          let text = (
+
+          let text: JSX.Element | string = (
             <span
               dangerouslySetInnerHTML={{ __html: escapeHTML(node.text) }}
               key={index}
             />
           );
+
+          // Apply formatting based on node format
+
           if (node.format & IS_BOLD) {
             text = <strong key={index}>{text}</strong>;
           }
@@ -65,9 +76,22 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               </span>
             );
           }
+
           if (node.format & IS_CODE) {
-            text = <code key={index}>{text}</code>;
+            const highlightedHtml = highlighter.codeToHtml(node.text, {
+              theme: 'dracula',
+              lang: 'javascript',
+            });
+
+            text = (
+              <code
+                key={index}
+                dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+              />
+            );
           }
+
+          // Apply subscript and superscript formatting if needed
           if (node.format & IS_SUBSCRIPT) {
             text = <sub key={index}>{text}</sub>;
           }
@@ -75,6 +99,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             text = <sup key={index}>{text}</sup>;
           }
 
+          // Return the formatted text
           return text;
         }
 
@@ -120,6 +145,26 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
           }
           case 'paragraph': {
             return <p key={index}>{serializedChildren}</p>;
+          }
+          case 'block': {
+            const highlightedHtml = highlighter.codeToHtml(_node.fields.code, {
+              theme: 'dracula',
+              lang: `${_node.fields.language}`,
+            });
+            console.log();
+
+            return (
+              <pre
+                className="shiki dracula"
+                style={{ backgroundColor: '#282A36', color: '#F8F8F2' }}
+                tabIndex={0}
+              >
+                <code
+                  key={index}
+                  dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+                />
+              </pre>
+            );
           }
           case 'heading': {
             const node = _node as SerializedHeadingNode;

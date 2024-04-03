@@ -55,6 +55,11 @@
 /* dark mode */
 .dark {
   background: #000;
+  /* #15171B */
 }
 
-/* #15171B */
+@media only screen and (device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 2) {
+  .parallax .scroller {
+    font-size: 50px;
+  }
+}

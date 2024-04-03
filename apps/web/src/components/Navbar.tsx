@@ -24,7 +24,7 @@ const Navbar = () => {
               <h1 className="font-poppins text-2xl ml-2 text-white">imbalab</h1>
             </NavLink>
           </div>
-          <div className="border-gradient bg-[#1C1C1C] rounded-full ">
+          <div className="border-gradient bg-[#1C1C1C] rounded-full invisible lg:visible">
             <ul className="flex items-center gap-[2vw]">
               <NavLink to="/">
                 <div className="p-2 m-2 pl-4 pr-4 bg-[#363636] rounded-full">

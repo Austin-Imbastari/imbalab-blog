@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import RichText from '../components/RichText';
 
 type Hero = {
   description: string;
@@ -10,6 +11,7 @@ type Hero = {
 };
 
 type CombinedType = {
+  content: any;
   title: string;
   id: string;
   categories: { id: string; title: string; createdAt: string }[];
@@ -20,9 +22,6 @@ type CombinedType = {
   selectedDocs: {
     relationTo: string;
     value: {
-      content: {
-        root: unknown;
-      };
       createdAt: string;
       id: string;
     };
@@ -52,7 +51,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <div className="container mt-[100px]">
+      <div className="container  mt-[100px]">
         {data.map((project) => (
           <div key={project.id}>
             <div className="flex items-center">
@@ -99,6 +98,10 @@ const BlogPost = () => {
                   Live Demo
                 </a>
               </div>
+            </div>
+
+            <div className="mt-10 prose-indigo  prose sm:prose-sm  md:prose-lg lg:prose-xl">
+              <RichText content={project.content} />
             </div>
           </div>
         ))}
