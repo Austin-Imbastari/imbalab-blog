@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import RichText from '../components/RichText';
+import Footer from '../components/Footer';
 
 type Hero = {
   description: string;
@@ -19,13 +20,6 @@ type CombinedType = {
   populateBy: string;
   relationTo: string;
   hero: Hero;
-  selectedDocs: {
-    relationTo: string;
-    value: {
-      createdAt: string;
-      id: string;
-    };
-  }[];
 };
 
 const BlogPost = () => {
@@ -51,7 +45,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <div className="container  mt-[100px]">
+      <div className="container mt-[100px]">
         {data.map((project) => (
           <div key={project.id}>
             <div className="flex items-center">
@@ -100,13 +94,14 @@ const BlogPost = () => {
               </div>
             </div>
 
-            <div className="flex justify-center">
-              <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-2xl ">
+            <div className="flex justify-center ">
+              <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-xl ">
                 <RichText content={project.content} />
               </div>
             </div>
           </div>
         ))}
+        <Footer />
       </div>
     </>
   );

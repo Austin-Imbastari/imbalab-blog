@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ThemeSwitcher from './ThemeSwitcher';
 import LogoIcon from '/images/logo.svg';
@@ -7,6 +8,7 @@ import { navbar } from '../utils/animations';
 import { motion } from 'framer-motion';
 
 const Navbar = () => {
+  const [opened, setOpened] = useState<boolean>(false);
   return (
     <>
       <motion.header
@@ -53,7 +55,7 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full">
+          <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer">
             <img className="size-4" src={Hamburger} alt="hamburger menu" />
           </div>
         </nav>

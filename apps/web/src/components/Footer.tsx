@@ -1,43 +1,12 @@
 import React from 'react';
-import footerStar from '/images/footerStar.png';
-import LogoIcon from '/images/logo.svg';
-import Star from '/images/star.svg';
-
 import { FaLinkedin } from 'react-icons/fa6';
 import { FaGithubAlt } from 'react-icons/fa6';
-
 import { NavLink } from 'react-router-dom';
+import LogoIcon from '/images/logo.svg';
 
 const Footer = () => {
   return (
     <>
-      <div className="container mt-[60px] p-10">
-        <div className="flex flex-col">
-          <div className="flex items-center justify-between">
-            <div>
-              <div className="flex">
-                <h1 className="text-5xl text-white">Have any questions? </h1>
-                <img className="ml-6" src={Star} alt="star png" />
-              </div>
-              <div className="mt-9 w-3/5">
-                <p className="text-white text-xl">
-                  Feel free to send me a message about anything related to my
-                  blog!
-                </p>
-              </div>
-              <div>
-                <button className="mt-9 border-gradient p-3 mr-4 bg-[#363636] rounded-full">
-                  <a href="mailto: austinimbastari@gmail.com" target="_blank">
-                    Send a message
-                  </a>
-                </button>
-              </div>
-            </div>
-            <img src={footerStar} alt="footstar" />
-          </div>
-        </div>
-      </div>
-
       <header className="bg-black mt-[100px]">
         <nav className="container flex justify-between items-center h-28">
           <div className="flex items-center ">

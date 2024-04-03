@@ -37,7 +37,7 @@ interface Props {
 
 const highlighter = await getHighlighter({
   themes: ['dracula'],
-  langs: ['javascript', 'typescript'],
+  langs: ['javascript', 'jsx', 'typescript', 'tsx'],
 });
 
 export function serializeLexical({ nodes }: Props): JSX.Element {
@@ -146,6 +146,17 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
           case 'paragraph': {
             return <p key={index}>{serializedChildren}</p>;
           }
+          case 'upload': {
+            return (
+              <video
+                className="w-full h-full rounded-lg"
+                src={`${import.meta.env.VITE_API_URL}${_node.value.url}`}
+                key={index}
+                loop
+                autoPlay
+              />
+            );
+          }
           case 'block': {
             const highlightedHtml = highlighter.codeToHtml(_node.fields.code, {
               theme: 'dracula',
@@ -158,6 +169,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               />
             );
           }
+
           case 'heading': {
             const node = _node as SerializedHeadingNode;
 
@@ -218,9 +230,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
           }
           case 'link': {
             const node = _node as unknown as SerializedLinkNode;
-
             const fields: LinkFields = node.fields;
-
             if (fields.linkType === 'custom') {
               return (
                 <a

@@ -32,7 +32,9 @@ export default {
             h4: {
               color: theme('colors.white'),
             },
-            // ...
+            p: {
+              fontSize: '18px',
+            },
           },
         },
         dark: {
