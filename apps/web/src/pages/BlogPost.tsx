@@ -83,7 +83,7 @@ const BlogPost = () => {
                 <a
                   href={project.hero.github}
                   target="_blank"
-                  className="relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none"
+                  className="font-poppins relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none"
                 >
                   Source Code
                 </a>
@@ -93,15 +93,17 @@ const BlogPost = () => {
                 <a
                   href={project.hero.livedemo}
                   target="_blank"
-                  className="relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none "
+                  className="font-poppins relative inline-flex items-center justify-center px-8 py-4 text-md font-bold text-white transition-all duration-200 bg-gray-900 font-pj rounded-xl focus:outline-none "
                 >
                   Live Demo
                 </a>
               </div>
             </div>
 
-            <div className="mt-10 prose-indigo  prose sm:prose-sm  md:prose-lg lg:prose-xl">
-              <RichText content={project.content} />
+            <div className="flex justify-center">
+              <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-2xl">
+                <RichText content={project.content} />
+              </div>
             </div>
           </div>
         ))}

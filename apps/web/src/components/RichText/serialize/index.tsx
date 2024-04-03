@@ -151,19 +151,11 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               theme: 'dracula',
               lang: `${_node.fields.language}`,
             });
-            console.log();
-
             return (
-              <pre
-                className="shiki dracula"
-                style={{ backgroundColor: '#282A36', color: '#F8F8F2' }}
-                tabIndex={0}
-              >
-                <code
-                  key={index}
-                  dangerouslySetInnerHTML={{ __html: highlightedHtml }}
-                />
-              </pre>
+              <div
+                key={index}
+                dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+              />
             );
           }
           case 'heading': {
@@ -225,7 +217,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             return <blockquote key={index}>{serializedChildren}</blockquote>;
           }
           case 'link': {
-            const node = _node as SerializedLinkNode;
+            const node = _node as unknown as SerializedLinkNode;
 
             const fields: LinkFields = node.fields;
 
