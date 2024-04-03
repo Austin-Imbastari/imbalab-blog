@@ -101,7 +101,7 @@ const BlogPost = () => {
             </div>
 
             <div className="flex justify-center">
-              <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-2xl">
+              <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-2xl ">
                 <RichText content={project.content} />
               </div>
             </div>

@@ -84,7 +84,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
             });
 
             text = (
-              <code
+              <div
                 key={index}
                 dangerouslySetInnerHTML={{ __html: highlightedHtml }}
               />

@@ -35,6 +35,9 @@ export default {
             // ...
           },
         },
+        dark: {
+          css: {},
+        },
       }),
     },
     darkMode: 'class',
