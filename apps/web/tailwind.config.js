@@ -17,6 +17,25 @@ export default {
       //   '5xl': 'clamp(3.81rem, 5.18vi + 2.52rem, 6.66rem)',
       //   '6xl': 'clamp(4.77rem, 7.48vi + 2.9rem, 8.88rem)',
       // },
+      typography: (theme) => ({
+        DEFAULT: {
+          css: {
+            h1: {
+              color: theme('colors.white'),
+            },
+            h2: {
+              color: theme('colors.white'),
+            },
+            h3: {
+              color: theme('colors.white'),
+            },
+            h4: {
+              color: theme('colors.white'),
+            },
+            // ...
+          },
+        },
+      }),
     },
     darkMode: 'class',
     fontFamily: {
