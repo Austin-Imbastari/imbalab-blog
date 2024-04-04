@@ -39,6 +39,7 @@ const BlogPost = () => {
 
   useEffect(() => {
     fetchProjectId(id);
+    window.scrollTo(0, 0);
   }, [id]);
 
   return (

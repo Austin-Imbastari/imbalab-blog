@@ -26,19 +26,22 @@ type GLTFResult = GLTF & {
 
 type OranicShapeProps = {
   mobile: boolean;
+  light: React.MutableRefObject<THREE.DirectionalLight>;
 };
 
 function OranicShape({
   mobile,
+  light,
   ...props
 }: OranicShapeProps & JSX.IntrinsicElements['group']) {
   const { nodes, materials } = useGLTF('/organicShape.glb') as GLTFResult;
   const { viewport } = useThree();
   const organic = useRef<Mesh>(null!);
 
-  useFrame((state, delta) => {
-    const angle = state.clock.getElapsedTime();
+  useFrame((state) => {
     // organic.current.position.z += (Math.cos(angle) * delta) / 2.5;
+    const angle = state.clock.getElapsedTime();
+
     organic.current.rotation.set(
       Math.cos(angle / 2),
       Math.sin(-Math.PI * 2.5),
@@ -47,6 +50,8 @@ function OranicShape({
   });
 
   useFrame(({ pointer }) => {
+    light.current.position.x = pointer.x * 20;
+    light.current.position.y = pointer.y * 20;
     const normalizedX = (pointer.x / 2 - 1) / 5;
     const normalizedY = (pointer.y / 2 - 1) / 5;
     organic.current.position.x = normalizedX;
@@ -92,6 +97,7 @@ const Loader = () => {
 
 const Hero = () => {
   const [mobile, setIsMobile] = useState<boolean>(false);
+  const light = useRef<THREE.DirectionalLight>(null!);
 
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: 500px)`);
@@ -119,9 +125,9 @@ const Hero = () => {
         >
           <Suspense fallback={<Loader />}>
             <color attach="background" args={['#000']} />
-            <directionalLight intensity={2} position={[0, 3, 2]} />
+            <directionalLight ref={light} intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} />
-            <OranicShape mobile={mobile} />
+            <OranicShape light={light} mobile={mobile} />
             <Text
               font={fontUrl}
               fontSize={mobile ? 0.6 : 2.2}
