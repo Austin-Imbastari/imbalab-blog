@@ -68,44 +68,64 @@ const Navbar = () => {
             )}
           </div>
 
-          {/* responsive navbar */}
-
           {opened && (
-            <div className="z-10 backdrop-blur-sm bg-[#363636]/50 absolute top-[100px] right-0 flex justify-center bg-white rounded-lg w-[200px] h-auto ">
-              <ul className="p-2 text-center">
-                <li className="text-xl text-white p-2">
-                  <ThemeSwitcher />
-                </li>
-                <li className="text-xl text-white p-2 ">
-                  <NavLink onClick={() => setOpened(!opened)} to="/">
-                    <div className="flex justify-center">Home</div>
-                  </NavLink>
-                </li>
-                <li
-                  onClick={() => setOpened(!opened)}
-                  className="text-xl text-white p-2"
-                >
-                  <a
-                    className="font-poppins text-white cursor-pointer"
-                    target="_blank"
-                    href="https://austinimbastari.netlify.app/"
+            <>
+              <div
+                style={{
+                  width: '100vw',
+                  height: '100vh',
+                  position: 'fixed',
+                  zIndex: '9',
+                  left: 0,
+                  top: 0,
+                  backgroundColor: ' #000000d7',
+                  opacity: 0.9,
+                }}
+              ></div>
+              <div className="z-10  bg-[#363636]/50 absolute top-[100px] right-0 flex justify-center rounded-lg w-full md:lg:w-[200px] lg:w-[200px] h-auto pb-2">
+                <ul className="p-2 text-center">
+                  <li className="text-xl p-2">
+                    <ThemeSwitcher />
+                  </li>
+                  <li className="text-xl text-white p-2 ">
+                    <NavLink onClick={() => setOpened(!opened)} to="/">
+                      <div className="flex justify-center">Home</div>
+                    </NavLink>
+                  </li>
+                  <li
+                    onClick={() => setOpened(!opened)}
+                    className="text-xl text-white p-2"
                   >
-                    About Me
-                  </a>
-                </li>
-                <li
-                  onClick={() => setOpened(!opened)}
-                  className="text-xl text-white p-2"
-                >
-                  <NavLink
-                    to="/allprojects"
-                    className="font-poppins text-white cursor-pointer"
+                    <a
+                      className="font-poppins text-white cursor-pointer"
+                      target="_blank"
+                      href="https://austinimbastari.netlify.app/"
+                    >
+                      About Me
+                    </a>
+                  </li>
+                  <li
+                    onClick={() => setOpened(!opened)}
+                    className="text-xl text-white p-2"
                   >
-                    <div>Projects</div>
-                  </NavLink>
-                </li>
-              </ul>
-            </div>
+                    <NavLink
+                      to="/allprojects"
+                      className="font-poppins text-white cursor-pointer"
+                    >
+                      <div>Projects</div>
+                    </NavLink>
+                  </li>
+                  <li>
+                    <div
+                      onClick={() => setOpened(!opened)}
+                      className="flex justify-center cursor-pointer mt-4"
+                    >
+                      <img className="size-6" src={X} alt="X menu" />
+                    </div>
+                  </li>
+                </ul>
+              </div>
+            </>
           )}
         </nav>
       </motion.header>
