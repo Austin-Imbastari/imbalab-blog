@@ -80,7 +80,7 @@ function OranicShape({
         material={materials['Scene_-_Root']}
         rotation={[-2.698, 0.434, 3.094]}
       >
-        <MeshTransmissionMaterial {...organicProps} />
+        <MeshTransmissionMaterial {...(mobile ? {} : organicProps)} />
       </mesh>
     </group>
   );
@@ -137,7 +137,8 @@ const Hero = () => {
             </Text>
           </Suspense>
         </Canvas>
-        <Leva collapsed />
+
+        {mobile ? '' : <Leva collapsed />}
       </div>
     </>
   );

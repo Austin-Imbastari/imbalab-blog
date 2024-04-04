@@ -76,13 +76,15 @@ const Navbar = () => {
                 <li className="text-xl text-white p-2">
                   <ThemeSwitcher />
                 </li>
-                <li className="text-xl text-white p-2">
-                  {' '}
-                  <NavLink to="/">
+                <li className="text-xl text-white p-2 ">
+                  <NavLink onClick={() => setOpened(!opened)} to="/">
                     <div className="flex justify-center">Home</div>
                   </NavLink>
                 </li>
-                <li className="text-xl text-white p-2">
+                <li
+                  onClick={() => setOpened(!opened)}
+                  className="text-xl text-white p-2"
+                >
                   <a
                     className="font-poppins text-white cursor-pointer"
                     target="_blank"
@@ -91,7 +93,10 @@ const Navbar = () => {
                     About Me
                   </a>
                 </li>
-                <li className="text-xl text-white p-2">
+                <li
+                  onClick={() => setOpened(!opened)}
+                  className="text-xl text-white p-2"
+                >
                   <NavLink
                     to="/allprojects"
                     className="font-poppins text-white cursor-pointer"
