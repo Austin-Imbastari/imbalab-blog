@@ -41,8 +41,6 @@ const BlogPost = () => {
     fetchProjectId(id);
   }, [id]);
 
-  console.log(data);
-
   return (
     <>
       <div className="container mt-[100px]">
@@ -92,6 +90,15 @@ const BlogPost = () => {
                   Live Demo
                 </a>
               </div>
+            </div>
+
+            <div className=" mt-[60px] ">
+              <div
+                style={{
+                  borderTop: '2px solid #3c3b3b',
+                  width: '100%',
+                }}
+              ></div>
             </div>
 
             <div className="flex justify-center ">

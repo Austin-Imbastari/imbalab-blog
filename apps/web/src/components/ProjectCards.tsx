@@ -40,7 +40,7 @@ const ProjectCards = ({
   useEffect(() => {
     fetchImageData(mediaId);
   }, [mediaId]);
-  console.log('imgId', `${import.meta.env.VITE_API_URL}${imgId}`);
+
   return (
     <motion.div
       variants={CardVariants}

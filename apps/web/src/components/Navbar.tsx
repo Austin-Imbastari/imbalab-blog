@@ -9,6 +9,7 @@ import { motion } from 'framer-motion';
 
 const Navbar = () => {
   const [opened, setOpened] = useState<boolean>(false);
+
   return (
     <>
       <motion.header
@@ -56,7 +57,7 @@ const Navbar = () => {
             </ul>
           </div>
           <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer">
-            <img className="size-4" src={Hamburger} alt="hamburger menu" />
+            <img className="size-4" src={Hamburger} alt="hamburger menu" />{' '}
           </div>
         </nav>
       </motion.header>
