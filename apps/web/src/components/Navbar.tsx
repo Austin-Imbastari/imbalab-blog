@@ -4,6 +4,7 @@ import ThemeSwitcher from './ThemeSwitcher';
 import LogoIcon from '/images/logo.svg';
 import HomeIcon from '/images/homeIcon.svg';
 import Hamburger from '/images/hamburger.svg';
+import X from '/images/x.svg';
 import { navbar } from '../utils/animations';
 import { motion } from 'framer-motion';
 
@@ -60,7 +61,11 @@ const Navbar = () => {
             onClick={() => setOpened(!opened)}
             className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer"
           >
-            <img className="size-4" src={Hamburger} alt="hamburger menu" />{' '}
+            {!opened ? (
+              <img className="size-4" src={Hamburger} alt="hamburger menu" />
+            ) : (
+              <img className="size-4" src={X} alt="X menu" />
+            )}
           </div>
 
           {/* responsive navbar */}
