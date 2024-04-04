@@ -18,7 +18,7 @@ const Navbar = () => {
         animate="show"
         className="bg-black"
       >
-        <nav className="container flex justify-between items-center h-28">
+        <nav className="container relative flex justify-between items-center h-28">
           <div className="flex items-center ">
             <NavLink to="/">
               <img src={LogoIcon} alt="logo svg image" />
@@ -56,9 +56,47 @@ const Navbar = () => {
               </li>
             </ul>
           </div>
-          <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer">
+          <div
+            onClick={() => setOpened(!opened)}
+            className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer"
+          >
             <img className="size-4" src={Hamburger} alt="hamburger menu" />{' '}
           </div>
+
+          {/* responsive navbar */}
+
+          {opened && (
+            <div className="z-10 backdrop-blur-sm bg-[#363636]/50 absolute top-[100px] right-0 flex justify-center bg-white rounded-lg w-[200px] h-auto ">
+              <ul className="p-2 text-center">
+                <li className="text-xl text-white p-2">
+                  <ThemeSwitcher />
+                </li>
+                <li className="text-xl text-white p-2">
+                  {' '}
+                  <NavLink to="/">
+                    <div className="flex justify-center">Home</div>
+                  </NavLink>
+                </li>
+                <li className="text-xl text-white p-2">
+                  <a
+                    className="font-poppins text-white cursor-pointer"
+                    target="_blank"
+                    href="https://austinimbastari.netlify.app/"
+                  >
+                    About Me
+                  </a>
+                </li>
+                <li className="text-xl text-white p-2">
+                  <NavLink
+                    to="/allprojects"
+                    className="font-poppins text-white cursor-pointer"
+                  >
+                    <div>Projects</div>
+                  </NavLink>
+                </li>
+              </ul>
+            </div>
+          )}
         </nav>
       </motion.header>
     </>

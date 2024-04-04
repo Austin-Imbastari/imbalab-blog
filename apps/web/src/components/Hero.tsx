@@ -50,8 +50,8 @@ function OranicShape({
   });
 
   useFrame(({ pointer }) => {
-    light.current.position.x = pointer.x * 20;
-    light.current.position.y = pointer.y * 20;
+    light.current.position.x = pointer.x * 15;
+    light.current.position.y = pointer.y * 15;
     const normalizedX = (pointer.x / 2 - 1) / 5;
     const normalizedY = (pointer.y / 2 - 1) / 5;
     organic.current.position.x = normalizedX;
