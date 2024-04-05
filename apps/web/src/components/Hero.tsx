@@ -95,21 +95,8 @@ const Loader = () => {
   );
 };
 
-const Hero = () => {
-  const [mobile, setIsMobile] = useState<boolean>(false);
+const Hero = ({ mobile }: { mobile: boolean }) => {
   const light = useRef<THREE.DirectionalLight>(null!);
-
-  useEffect(() => {
-    const mediaQuery = window.matchMedia(`(max-width: 500px)`);
-    setIsMobile(mediaQuery.matches);
-    const handleMediaQuery = (e: MediaQueryListEvent) => {
-      setIsMobile(e.matches);
-    };
-    mediaQuery.addEventListener('change', handleMediaQuery);
-    return () => {
-      mediaQuery.removeEventListener('change', handleMediaQuery);
-    };
-  }, []);
 
   return (
     <>
@@ -127,7 +114,7 @@ const Hero = () => {
             <color attach="background" args={['#000']} />
             <directionalLight ref={light} intensity={2} position={[0, 3, 2]} />
             <Environment files={'./hdr/gradient02.hdr'} />
-            <OranicShape light={light} mobile={mobile} />
+            {mobile ? '' : <OranicShape light={light} mobile={mobile} />}
             <Text
               font={fontUrl}
               fontSize={mobile ? 0.6 : 2.2}
@@ -137,7 +124,6 @@ const Hero = () => {
             </Text>
           </Suspense>
         </Canvas>
-
         {mobile ? '' : <Leva collapsed />}
       </div>
     </>

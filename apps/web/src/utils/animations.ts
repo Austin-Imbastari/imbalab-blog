@@ -69,6 +69,26 @@ export const Description = {
   },
 };
 
+export const MobileDescription = {
+  hidden: {
+    opacity: 0,
+  },
+  show: {
+    opacity: 1,
+
+    transition: {
+      duration: 1.2,
+      delay: 0.8,
+    },
+  },
+  exit: {
+    opacity: 0,
+    transition: {
+      duration: 0.2,
+    },
+  },
+};
+
 export const AustinImage = {
   hidden: {
     opacity: 0.5,

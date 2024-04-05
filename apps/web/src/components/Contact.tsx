@@ -1,14 +1,18 @@
 import footerStar from '/images/footerStar.png';
 import Star from '/images/star.svg';
-const Contact = () => {
+const Contact = ({ mobile }: { mobile: boolean }) => {
   return (
     <div className="container mt-[60px] p-10">
       <div className="flex flex-col">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between ">
           <div>
             <div className="flex">
-              <h1 className="text-5xl text-white">Have any questions? </h1>
-              <img className="ml-6" src={Star} alt="star png" />
+              <h1 className="text-5xl text-white">Have any questions?</h1>
+              <img
+                className="ml-6 invisible lg:visible"
+                src={Star}
+                alt="star png"
+              />
             </div>
             <div className="mt-9 w-3/5">
               <p className="text-white text-xl">
@@ -24,11 +28,13 @@ const Contact = () => {
               </button>
             </div>
           </div>
-          <img
-            className="invisible lg:visible"
-            src={footerStar}
-            alt="footstar"
-          />
+          {mobile ? null : (
+            <img
+              className="min-[320px]:mt-10"
+              src={footerStar}
+              alt="footstar"
+            />
+          )}
         </div>
       </div>
     </div>

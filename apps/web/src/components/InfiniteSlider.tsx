@@ -52,16 +52,16 @@ function InfiniteSlider({ baseVelocity = 100 }: ParallaxProps) {
       className="parallax bg-black"
     >
       <motion.div className="scroller" style={{ x }}>
-        <span className="text-white ml-5 font-poppins tracking-wider	">
+        <span className="text-white lg:text-[100px] text-[50px] ml-5 font-poppins tracking-wider">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins tracking-wider	">
+        <span className="text-white lg:text-[100px] text-[50px] ml-5 font-poppins tracking-wider">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins tracking-wider	">
+        <span className="text-white lg:text-[100px] text-[50px] ml-5 font-poppins tracking-wider">
           I DESIGN & BUILD WEBSITES
         </span>
-        <span className="text-white ml-5 font-poppins tracking-wider	">
+        <span className="text-white lg:text-[100px] text-[50px] ml-5 font-poppins tracking-wider">
           I DESIGN & BUILD WEBSITES
         </span>
       </motion.div>

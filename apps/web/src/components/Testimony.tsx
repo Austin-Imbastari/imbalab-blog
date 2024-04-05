@@ -1,29 +1,33 @@
 import React, { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
-const Testimony = () => {
+const Testimony = ({ mobile }: { mobile: boolean }) => {
   const ref = useRef<null>(null);
   const { scrollYProgress } = useScroll({
     target: ref,
     // offset: ['0.2 1', '1 1'],
   });
-  const scaleProgress = useTransform(scrollYProgress, [0, 1], [0.2, 1]);
+  const scaleProgress = useTransform(
+    scrollYProgress,
+    [0, 1],
+    [mobile ? 0.8 : 0.2, 1],
+  );
   const scaleProgressTitle = useTransform(scrollYProgress, [0, 1], [0.6, 1]);
   const sm = useTransform(scrollYProgress, [0, 1], [0, -50]);
 
   return (
     <>
-      <div className="container mt-[150px]">
+      <div className="container min-[320px]:mt-[0px] mt-[150px]">
         <div>
           <motion.h1
             style={{ y: sm, scale: scaleProgressTitle }}
-            className="text-8xl text-center text-white font-bold font-pachang "
+            className="lg:text-8xl text-4xl text-center text-white font-bold font-pachang "
           >
             Here's what you can expect from my blog...
           </motion.h1>
         </div>
 
-        <div className="mt-[150px] flex flex-wrap flex-col md:flex-row gap-5 mt-gr lg:mt-lg mb-md lg:mb-xl">
+        <div className="mt-[150px] min-[320px]:mt-[0px] flex flex-wrap flex-col md:flex-row gap-5 mt-gr lg:mt-lg mb-md lg:mb-xl">
           <motion.h2
             style={{
               backgroundImage: 'linear-gradient(45deg, #7a87fb, #ffd49c)',

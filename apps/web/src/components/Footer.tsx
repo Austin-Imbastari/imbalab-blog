@@ -7,14 +7,20 @@ import LogoIcon from '/images/logo.svg';
 const Footer = () => {
   return (
     <>
-      <header className="bg-black mt-[100px]">
+      <header className="bg-black lg:mt-[100px]">
         <nav className="container flex justify-between items-center h-28">
           <div className="flex items-center ">
             <NavLink to="/">
-              <img src={LogoIcon} alt="logo svg image" />
+              <img
+                className="lg:visible invisible"
+                src={LogoIcon}
+                alt="logo svg image"
+              />
             </NavLink>
             <NavLink to="/">
-              <h1 className="font-poppins text-2xl ml-2 text-white">imbalab</h1>
+              <h1 className="lg:visible invisible font-poppins text-2xl ml-2 text-white">
+                imbalab
+              </h1>
             </NavLink>
           </div>
           <div className="border-gradient bg-[#1C1C1C] rounded-full ">
@@ -49,7 +55,7 @@ const Footer = () => {
               </li> */}
             </ul>
           </div>
-          <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full">
+          <div className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full lg:visible invisible">
             <a href="mailto: austinimbastari@gmail.com" target="_blank">
               Contact Me
             </a>

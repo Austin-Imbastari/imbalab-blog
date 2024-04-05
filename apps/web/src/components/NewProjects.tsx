@@ -72,7 +72,7 @@ const NewProjects = () => {
           exit="exit"
           className="flex"
         >
-          <motion.h1 className="text-white text-6xl font-poppins">
+          <motion.h1 className="text-white text-4xl lg:text-6xl font-poppins">
             New Blogs
           </motion.h1>
           <img className="ml-4 " src={star} alt="star svg" />
@@ -87,7 +87,7 @@ const NewProjects = () => {
             variants={ContainerVariants}
             initial="hidden"
             animate={isInView ? 'show' : 'hidden'}
-            className="grid justify-items-center lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1"
+            className="grid justify-items-center lg:grid-cols-3 md:grid-cols-2 md:gap-4 gap-8  grid-cols-1"
           >
             {data?.map((project) => (
               <div key={project.id}>
