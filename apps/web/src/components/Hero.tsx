@@ -90,7 +90,7 @@ const Loader = () => {
   const { progress } = useProgress();
   return (
     <Html distanceFactor={10} center>
-      <p className="text-white font-pachang text-2xl">{progress.toFixed(2)}%</p>
+      <p className="text-white font-pachang text-xl">{progress.toFixed(2)}%</p>
     </Html>
   );
 };

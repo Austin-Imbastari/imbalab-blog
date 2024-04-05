@@ -9,7 +9,6 @@ import { useEffect, useState } from 'react';
 
 const HomePage = () => {
   const [mobile, setIsMobile] = useState<boolean>(false);
-
   useEffect(() => {
     const mediaQuery = window.matchMedia(`(max-width: 500px)`);
     setIsMobile(mediaQuery.matches);

@@ -13,7 +13,7 @@ type Hero = {
 type CombinedType = {
   blockName: string;
   blockType: string;
-  categories: { id: string; title: string; createdAt: string }[]; // Update categories type
+  categories: { id: string; title: string; createdAt: string }[];
   id: string;
   limit: number;
   populateBy: string;
@@ -22,9 +22,6 @@ type CombinedType = {
     relationTo: string;
     value: {
       categories: string[];
-      // content: {
-      //   root: any;
-      // };
       createdAt: string;
       hero: Hero;
       id: string;

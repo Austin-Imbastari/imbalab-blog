@@ -8,7 +8,7 @@ import X from '/images/x.svg';
 import { navbar } from '../utils/animations';
 import { motion } from 'framer-motion';
 
-const Navbar = () => {
+const Navbar = ({ handleThemeSwitch }: { handleThemeSwitch: () => void }) => {
   const [opened, setOpened] = useState<boolean>(false);
 
   return (
@@ -52,7 +52,10 @@ const Navbar = () => {
                   <div>Projects</div>
                 </NavLink>
               </li>
-              <li className="flex items-center pr-4">
+              <li
+                onClick={handleThemeSwitch}
+                className="flex items-center pr-4"
+              >
                 <ThemeSwitcher />
               </li>
             </ul>
