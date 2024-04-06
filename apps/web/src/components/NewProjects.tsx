@@ -64,7 +64,7 @@ const NewProjects = () => {
 
   return (
     <>
-      <div className="container mt-[60px] mb-[100px]">
+      <div className="container mt-[60px] mb-[100px] ">
         <motion.div
           initial="hidden"
           animate={isInView ? 'show' : 'hidden'}

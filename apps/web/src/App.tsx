@@ -1,4 +1,5 @@
 import './App.css';
+import { useEffect, useState } from 'react';
 import { ReactLenis } from '@studio-freight/react-lenis';
 
 //react router dom
@@ -9,7 +10,6 @@ import Navbar from './components/Navbar';
 import HomePage from './pages/HomePage';
 import AllProjects from './pages/AllProjects';
 import BlogPost from './pages/BlogPost';
-import { useEffect, useState } from 'react';
 
 function App() {
   const [theme, setTheme] = useState<string>(
@@ -30,7 +30,6 @@ function App() {
     const newTheme = theme === 'dark' ? 'light' : 'dark';
     localStorage.setItem('theme', newTheme);
     setTheme(newTheme);
-    console.log(theme);
   };
 
   const options = {
