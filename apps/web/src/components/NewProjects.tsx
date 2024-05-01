@@ -24,9 +24,6 @@ type CombinedType = {
     relationTo: string;
     value: {
       categories: string[];
-      // content: {
-      //   root: any;
-      // };
       createdAt: string;
       hero: Hero;
       id: string;
@@ -64,7 +61,7 @@ const NewProjects = () => {
 
   return (
     <>
-      <div className="container mt-[60px] mb-[100px] ">
+      <div className="container mt-[60px] mb-[100px]">
         <motion.div
           initial="hidden"
           animate={isInView ? 'show' : 'hidden'}
@@ -75,7 +72,8 @@ const NewProjects = () => {
           <motion.h1 className="text-white text-4xl lg:text-6xl font-poppins">
             New Blogs
           </motion.h1>
-          <img className="ml-4 " src={star} alt="star svg" />
+
+          <img className="ml-4" src={star} alt="star svg" />
         </motion.div>
         <div className="mt-20">
           <motion.div

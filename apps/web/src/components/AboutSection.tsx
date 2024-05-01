@@ -73,7 +73,7 @@ const AboutSection = ({ mobile }: { mobile: boolean }) => {
             </motion.p>
           )}
         </div>
-        <div className="max-w-6xl mx-auto mt-10 rounded-lg ">
+        <div className="max-w-6xl mx-auto mt-10 rounded-lg austinimg-mobile">
           <motion.img
             ref={ref}
             initial="hidden"

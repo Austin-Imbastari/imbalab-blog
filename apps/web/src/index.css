@@ -64,6 +64,71 @@
   }
 }
 
+@media (max-width: 768px) {
+  .logo-img {
+    display: none; /* Hide the image when screen size is below 768px */
+  }
+
+  .avatar-mobile {
+    margin-left: 20px;
+  }
+
+  .blog-mobile-description {
+    text-align: center;
+  }
+
+  .blog-btns-mobile {
+    text-align: center;
+  }
+
+  .austinimg-mobile {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+
+  .richtext-mobile {
+    max-width: 100%;
+    overflow-x: hidden;
+  }
+
+  .richtext {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    & video,
+    img,
+    svg,
+    canvas {
+      max-width: 350px;
+      height: auto;
+    }
+
+    & h1,
+    h2,
+    h3,
+    h4 {
+      font-size: 1.5rem;
+      text-align: center;
+    }
+
+    & p {
+      font-size: 1rem;
+      text-wrap: pretty;
+      width: 50%;
+    }
+  }
+
+  .component-codeinline {
+    font-size: 0.8rem;
+  }
+
+  .component-codeblock {
+    overflow-x: scroll;
+    width: 50%;
+  }
+}
+
 code {
   counter-reset: step;
   counter-increment: step 0;

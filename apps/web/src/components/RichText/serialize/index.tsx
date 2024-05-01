@@ -87,6 +87,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               <div
                 key={index}
                 dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+                className="component-codeinline"
               />
             );
           }
@@ -166,6 +167,7 @@ export function serializeLexical({ nodes }: Props): JSX.Element {
               <div
                 key={index}
                 dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+                className="component-codeblock"
               />
             );
           }

@@ -55,7 +55,7 @@ const Projects: CollectionConfig = {
   slug: "projects",
   access: {
     create: admins,
-    delete: () => false,
+    delete: admins,
     read: adminsOrPublished,
     update: admins,
   },

@@ -22,6 +22,9 @@ type CombinedType = {
     relationTo: string;
     value: {
       categories: string[];
+      // content: {
+      //   root: any;
+      // };
       createdAt: string;
       hero: Hero;
       id: string;

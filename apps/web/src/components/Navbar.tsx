@@ -20,9 +20,9 @@ const Navbar = ({ handleThemeSwitch }: { handleThemeSwitch: () => void }) => {
         className="bg-black"
       >
         <nav className="container relative flex justify-between items-center h-28">
-          <div className="flex items-center ">
+          <div className="flex items-center">
             <NavLink to="/">
-              <img src={LogoIcon} alt="logo svg image" />
+              <img className="logo-img" src={LogoIcon} alt="logo svg image" />
             </NavLink>
             <NavLink to="/">
               <h1 className="font-poppins text-2xl ml-2 text-white">imbalab</h1>
@@ -62,7 +62,7 @@ const Navbar = ({ handleThemeSwitch }: { handleThemeSwitch: () => void }) => {
           </div>
           <div
             onClick={() => setOpened(!opened)}
-            className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer"
+            className="border-gradient p-4 ml-4 mr-4 bg-[#363636] rounded-full cursor-pointer hamburger"
           >
             {!opened ? (
               <img className="size-4" src={Hamburger} alt="hamburger menu" />

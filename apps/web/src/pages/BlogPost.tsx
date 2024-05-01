@@ -47,7 +47,7 @@ const BlogPost = () => {
       <div className="container mt-[100px]">
         {data.map((project) => (
           <div key={project.id}>
-            <div className="flex items-center">
+            <div className="flex items-center avatar-mobile">
               <div className="avatar">
                 <div className="w-24 rounded-full border-gradient">
                   <img src="/images/imba.png" alt="Avatar" />
@@ -63,15 +63,15 @@ const BlogPost = () => {
               </div>
             </div>
 
-            <div>
-              <h1 className="text-3xl text-white font-semibold font-poppins mt-5">
+            <div className="blog-mobile-description">
+              <h1 className="text-xl lg:text-3xl text-white font-semibold font-poppins mt-5">
                 {project.title}
               </h1>
               <p className="font-poppins mt-2">{project.hero.description}</p>
             </div>
 
-            <div className="mt-10">
-              <div className="relative inline-flex  group">
+            <div className="mt-10 blog-btns-mobile">
+              <div className="relative inline-flex group">
                 <div className="absolute transitiona-all duration-1000 opacity-70 -inset-px bg-gradient-to-r from-[#7a87fb]  to-[#ffd49c] rounded-xl blur-lg group-hover:opacity-100 group-hover:-inset-1 group-hover:duration-200 animate-tilt"></div>
                 <a
                   href={project.hero.github}
@@ -102,9 +102,9 @@ const BlogPost = () => {
               ></div>
             </div>
 
-            <div className="flex justify-center ">
+            <div className="flex justify-center richtext-mobile">
               <div className="mt-10 prose prose-indigo font-poppins sm:prose-sm md:prose-lg lg:prose-xl ">
-                <RichText content={project.content} />
+                <RichText className="richtext" content={project?.content} />
               </div>
             </div>
           </div>

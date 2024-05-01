@@ -16,7 +16,8 @@ export const Media: CollectionConfig = {
     update: admins,
   },
   upload: {
-    staticDir: path.resolve(__dirname, "../media/"),
+    mimeTypes: ["image/*", "video/*"],
+    staticDir: path.resolve(__dirname, "../../media/"),
   },
   fields: [
     {
