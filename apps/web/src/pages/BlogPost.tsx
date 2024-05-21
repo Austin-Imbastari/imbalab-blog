@@ -44,7 +44,7 @@ const BlogPost = () => {
 
   return (
     <>
-      <div className="container mt-[100px]">
+      <div className="container min-h-screen mt-[100px]">
         {data.map((project) => (
           <div key={project.id}>
             <div className="flex items-center avatar-mobile">
