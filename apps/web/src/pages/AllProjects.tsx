@@ -50,7 +50,7 @@ const AllProjects = () => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container min-h-screen">
       <div className="flex justify-center mt-[200px] gap-6">
         <div className="badge badge-outline border-gradient p-4 font-poppins">
           <a href={''}>3D</a>
@@ -59,13 +59,13 @@ const AllProjects = () => {
           <a href={''}>Fullstack</a>
         </div>
       </div>
-      <div className="flex mt-[50px]">
-        <h1 className="text-white text-4xl lg:text-6xl font-poppins">
+      <div className="flex justify-center  mt-[50px]">
+        <h1 className="text-white text-4xl lg:text-5xl font-poppins">
           All Projects
-        </h1>{' '}
+        </h1>
         <img className="ml-4" src={star} alt="star svg" />
       </div>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 md:gap-4 grid-cols-1 gap-2 ">
         {data?.map((project) => (
           <div
             key={project.id}
